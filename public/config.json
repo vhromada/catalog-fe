@@ -1,0 +1,10 @@
+{
+    "VITE_APP_CATALOG_URL": null,
+    "VITE_APP_CATALOG_USERNAME": null,
+    "VITE_APP_CATALOG_PASSWORD": null,
+    "VITE_APP_HASH_SALT": null,
+    "VITE_APP_LOG_ENABLED": null,
+    "VITE_APP_LOG_CONSOLE_ENABLED": null,
+    "VITE_APP_ITEMS_PER_PAGE": null,
+    "VITE_APP_ALL_DATA_COUNT": null
+}

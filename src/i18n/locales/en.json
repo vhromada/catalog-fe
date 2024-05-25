@@ -1,0 +1,376 @@
+{
+    "accounts": {
+        "errors": {
+            "exists": "@:accounts.items.username already exists",
+            "passwords": "Passwords must be same",
+            "role": "Role"
+        },
+        "form": {
+            "edit": "Update account",
+            "editRoles": "Edit account roles"
+        },
+        "items": {
+            "copyPassword": "Copy of @.lower:accounts.items.password",
+            "password": "Password",
+            "roles": "Roles",
+            "username": "Username"
+        },
+        "statistics": {
+            "count": "Count of @.lower:accounts.title"
+        },
+        "title": "Accounts"
+    },
+    "app": {
+        "description": "Catalog of @.lower:movies.title{','} @.lower:shows.title{','} @.lower:games.title{','} @.lower:music.title{','} @.lower:programs.title{','} @.lower:books.title and jokes",
+        "title": "Catalog"
+    },
+    "authors": {
+        "form": {
+            "add": "Add @.lower:authors.header",
+            "edit": "Edit @.lower:authors.header"
+        },
+        "header": "Author",
+        "items": {
+            "firstName": "First name",
+            "middleName": "Middle name",
+            "lastName": "Last name"
+        },
+        "menu": {
+            "list": "All @.lower:authors.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:authors.title"
+        },
+        "title": "Authors"
+    },
+    "books": {
+        "detail": "@:books.header detail",
+        "form": {
+            "add": "Add @.lower:books.header",
+            "edit": "Edit @.lower:books.header"
+        },
+        "header": "Book",
+        "menu": {
+            "list": "All @.lower:books.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:books.title",
+            "bookItems": "Count of @.lower:bookItems.title"
+        },
+        "title": "Books"
+    },
+    "bookItems": {
+        "detail": "@:bookItems.header detail",
+        "form": {
+            "add": "Add @.lower:bookItems.header",
+            "edit": "Edit @.lower:bookItems.header"
+        },
+        "header": "Book item",
+        "menu": {
+            "list": "All @.lower:bookItems.title"
+        },
+        "noData": "No @.lower:bookItems.title",
+        "title": "Book items"
+    },
+    "cheats": {
+        "form": {
+            "action": "@:cheats.form.cheat @.lower:cheats.items.action",
+            "add": "Add @.lower:cheats.title",
+            "cheat": "Cheat {index}",
+            "description": "@:cheats.form.cheat @.lower:items.description",
+            "edit": "Edit @.lower:cheats.title",
+            "remove": "Remove @.lower:cheats.title"
+        },
+        "items": {
+            "action": "Action",
+            "data": "cheat data",
+            "cheatSetting": "Setting for @.lower:cheats.title",
+            "gameSetting": "Setting for @.lower:games.header"
+        },
+        "menu": {
+            "list": "All @.lower:cheats.title"
+        },
+        "title": "Cheats"
+    },
+    "common": {
+        "totalLength": "Total @.lower:items.length"
+    },
+    "episodes": {
+        "detail": "@:episodes.header detail",
+        "form": {
+            "add": "Add @.lower:episodes.header",
+            "edit": "Edit @.lower:episodes.header"
+        },
+        "header": "Episode",
+        "menu": {
+            "list": "All @.lower:episodes.title"
+        },
+        "noData": "No @.lower:episodes.title",
+        "title": "Episodes"
+    },
+    "errors": {
+        "invalidPage": "Page not found",
+        "items": {
+            "code": "Code",
+            "message": "Message",
+            "stack": "Detail"
+        },
+        "max": {
+            "number": "Maximum value of {field} is {max}",
+            "string": "Maximum length of {field} is {max}"
+        },
+        "min": {
+            "number": "Minimum value of {field} is {min}",
+            "list": "At least {min} {field} is required"
+        },
+        "required": "{field} is required",
+        "title": "Error",
+        "time": "Length must be at least 1 second"
+    },
+    "games": {
+        "detail": "@:games.header detail",
+        "form": {
+            "add": "Add @.lower:games.header",
+            "edit": "Edit @.lower:games.header"
+        },
+        "header": "Game",
+        "items": {
+            "editor": "Editor",
+            "patch": "Patch",
+            "saves": "Saves",
+            "trainer": "Trainer",
+            "trainerData": "Data for @.lower:games.items.trainer"
+        },
+        "menu": {
+            "list": "All @.lower:games.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:games.title"
+        },
+        "title": "Games"
+    },
+    "genres": {
+        "form": {
+            "add": "Add @.lower:genres.header",
+            "edit": "Edit @.lower:genres.header"
+        },
+        "header": "Genre",
+        "menu": {
+            "list": "All @.lower:genres.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:genres.title"
+        },
+        "title": "Genres"
+    },
+    "items": {
+        "additionalData": "Additional data",
+        "crack": "Crack",
+        "czechName": "Czech name",
+        "csfd": "ČSFD",
+        "description": "Description",
+        "format": "Format",
+        "hours": "Hours",
+        "imdb": "IMDB",
+        "language": "Language",
+        "languages": "Languages",
+        "length": "Length",
+        "mediaCount": "Count of media",
+        "minutes": "Minutes",
+        "name": "Name",
+        "number": "Number",
+        "note": "Note",
+        "originalName": "Original name",
+        "otherData": "Other data",
+        "picture": "Picture",
+        "seconds": "Seconds",
+        "serialKey": "Serial key",
+        "subtitles": "Subtitles",
+        "wikiCz": "Czech Wikipedia",
+        "wikiEn": "English Wikipedia"
+    },
+    "jokes": {
+        "detail": "@:jokes.header detail",
+        "form": {
+            "add": "Add @.lower:jokes.header",
+            "edit": "Edit @.lower:jokes.header"
+        },
+        "header": "Joke",
+        "items": {
+            "content": "Content"
+        },
+        "menu": {
+            "list": "All @.lower:jokes.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:jokes.title"
+        },
+        "title": "Jokes"
+    },
+    "links": {
+        "add": "Add",
+        "cancel": "Cancel",
+        "choose": "Choose",
+        "choosePicture": "Choose @.lower:items.picture",
+        "close": "Close",
+        "create": "Create",
+        "duplicate": "Duplicate",
+        "edit": "Edit",
+        "logout": "Logout",
+        "search": "Search",
+        "show": "Show",
+        "remove": "Remove",
+        "update": "Update"
+    },
+    "login": {
+        "errors": {
+            "invalid": "Wrong @.lower:accounts.items.username or @.lower:accounts.items.password"
+        },
+        "links": {
+            "back": "Back to @.lower:login.title",
+            "login": "Log in"
+        },
+        "title": "Login"
+    },
+    "movies": {
+        "detail": "@:movies.header detail",
+        "form": {
+            "add": "Add @.lower:movies.header",
+            "edit": "Edit @.lower:movies.header",
+            "medium": "@:movies.items.medium {index}"
+        },
+        "header": "Movie",
+        "items": {
+            "media": "Media",
+            "medium": "Medium",
+            "year": "Year"
+        },
+        "menu": {
+            "list": "All @.lower:movies.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:movies.title"
+        },
+        "title": "Movies"
+    },
+    "music": {
+        "detail": "@:music.title detail",
+        "form": {
+            "add": "Add @.lower:music.title",
+            "edit": "Edit @.lower:music.title"
+        },
+        "menu": {
+            "list": "All @.lower:music.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:music.title",
+            "songs": "Count of @.lower:songs.title"
+        },
+        "title": "Music"
+    },
+    "pictures": {
+        "errors": {
+            "maxSize": "Max size is 5MB",
+            "required": "Picture is required"
+        },
+        "form": {
+            "add": "Add @.lower:pictures.header",
+            "content": "Content (max 5MB)"
+        },
+        "header": "Picture",
+        "menu": {
+            "list": "All @.lower:pictures.title"
+        },
+        "noData": "No @.lower:pictures.title",
+        "title": "Pictures"
+    },
+    "programs": {
+        "detail": "@:programs.header detail",
+        "form": {
+            "add": "Add @.lower:programs.header",
+            "edit": "Edit @.lower:programs.header"
+        },
+        "header": "Program",
+        "menu": {
+            "list": "All @.lower:programs.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:programs.title"
+        },
+        "title": "Programs"
+    },
+    "registers": {
+        "BATTLE_NET": "Battle.net",
+        "BINARY": "Binary file",
+        "CZ": "Czech",
+        "DOC": "Electronic - doc",
+        "EN": "English",
+        "FR": "French",
+        "ISO": "ISO",
+        "JP": "Japanese",
+        "PAPER": "Paper",
+        "PDF": "Electronic - pdf",
+        "ROLE_ADMIN": "Admin",
+        "ROLE_USER": "User",
+        "SK": "Slovak",
+        "STEAM": "Steam",
+        "TXT": "Electronic - txt"
+    },
+    "registration": {
+        "title": "Registration"
+    },
+    "roles": {
+        "title": "Edit roles"
+    },
+    "seasons": {
+        "detail": "@:seasons.header detail",
+        "errors": {
+            "years": "Starting year must be lesser or equals to ending year"
+        },
+        "form": {
+            "add": "Add @.lower:seasons.header",
+            "edit": "Edit @.lower:seasons.header"
+        },
+        "header": "Season",
+        "items": {
+            "endYear": "Ending year",
+            "startYear": "Starting year",
+            "years": "Years"
+        },
+        "noData": "No @.lower:seasons.title",
+        "menu": {
+            "list": "All @.lower:seasons.title"
+        },
+        "title": "Seasons"
+    },
+    "shows": {
+        "detail": "@:shows.header detail",
+        "form": {
+            "add": "Add @.lower:shows.header",
+            "edit": "Edit @.lower:shows.header"
+        },
+        "header": "Show",
+        "menu": {
+            "list": "All @.lower:shows.title"
+        },
+        "statistics": {
+            "count": "Count of @.lower:shows.title",
+            "seasons": "Count of @.lower:seasons.title",
+            "episodes": "Count of @.lower:episodes.title"
+        },
+        "title": "Shows"
+    },
+    "songs": {
+        "detail": "@:songs.header detail",
+        "form": {
+            "add": "Add @.lower:songs.header",
+            "edit": "Edit @.lower:songs.header"
+        },
+        "header": "Song",
+        "noData": "No @.lower:songs.title",
+        "menu": {
+            "list": "All @.lower:songs.title"
+        },
+        "title": "Songs"
+    }
+}
