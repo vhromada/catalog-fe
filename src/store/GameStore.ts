@@ -1,9 +1,9 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import gameConnector from '../connector/GameConnector.ts';
-import { INameFilter, NameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { Game, IGame, IGameStatistics } from '../model/Game.ts';
+import { type INameFilter, NameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { Game, type IGame, type IGameStatistics } from '../model/Game.ts';
 
 export class GameStore {
 
@@ -24,7 +24,7 @@ export class GameStore {
     if (gamesResponse.isOk()) {
       const statisticsResponse = await gameConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -111,8 +111,8 @@ export class GameStore {
   private async searchByFilter(filter: INameFilter): Promise<IResult> {
     const response = await gameConnector.search(filter);
     if (response.isOk()) {
-      this.games.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.games.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

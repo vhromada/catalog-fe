@@ -1,9 +1,9 @@
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import bookConnector from '../connector/BookConnector.ts';
-import { ChangeBookRequest, IBook, IBookStatistics } from '../model/Book.ts';
-import { IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { ChangeBookRequest, type IBook, type IBookStatistics } from '../model/Book.ts';
+import { type IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 
 export class BookStore {
 
@@ -24,7 +24,7 @@ export class BookStore {
     if (booksResponse.isOk()) {
       const statisticsResponse = await bookConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -112,8 +112,8 @@ export class BookStore {
   private async searchByFilter(filter: IMultipleNameFilter): Promise<IResult> {
     const response = await bookConnector.search(filter);
     if (response.isOk()) {
-      this.books.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.books.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

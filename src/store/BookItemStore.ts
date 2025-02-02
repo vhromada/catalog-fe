@@ -1,8 +1,8 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import bookItemConnector from '../connector/BookItemConnector.ts';
-import { BookItem, IBookItem } from '../model/BookItem.ts';
-import { IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { BookItem, type IBookItem } from '../model/BookItem.ts';
+import { type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 
 export class BookItemStore {
 
@@ -19,8 +19,8 @@ export class BookItemStore {
   async load(book: string): Promise<IResult> {
     const response = await bookItemConnector.search(book, this.filter);
     if (response.isOk()) {
-      this.bookItems.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.bookItems.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

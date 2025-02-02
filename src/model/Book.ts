@@ -1,6 +1,6 @@
 import { useI18n } from 'vue-i18n';
 import * as yup from 'yup';
-import { IAuthor } from './Author.ts';
+import { type IAuthor } from './Author.ts';
 
 export interface IBook {
   uuid: string;

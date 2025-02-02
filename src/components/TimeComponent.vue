@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Field } from 'vee-validate';
+import { useI18n } from 'vue-i18n';
 import ErrorMessage from './ErrorMessage.vue';
 
 const props = defineProps({
@@ -7,6 +8,7 @@ const props = defineProps({
   prefix: {type: String},
   errorBag: {type: Object}
 });
+const {t} = useI18n();
 const hoursName = props.path + '.hours';
 const minutesName = props.path + '.minutes';
 const secondsName = props.path + '.seconds';
@@ -26,17 +28,17 @@ if (props.prefix) {
 
 <template>
   <div class="form-group">
-    <label class="form-label" :for="hoursId">{{ $t('items.hours') }}</label>
+    <label class="form-label" :for="hoursId">{{ t('items.hours') }}</label>
     <Field type="number" class="form-control" :id="hoursId" :name="hoursName" min="0" max="23" step="1"/>
     <ErrorMessage :errors="errorBag?.[`${hoursName}`]"/>
   </div>
   <div class="form-group">
-    <label class="form-label" :for="minutesId">{{ $t('items.minutes') }}</label>
+    <label class="form-label" :for="minutesId">{{ t('items.minutes') }}</label>
     <Field type="number" class="form-control" :id="minutesId" :name="minutesName" min="0" max="59" step="1"/>
     <ErrorMessage :errors="errorBag?.[`${minutesName}`]"/>
   </div>
   <div class="form-group">
-    <label class="form-label" :for="secondsId">{{ $t('items.seconds') }}</label>
+    <label class="form-label" :for="secondsId">{{ t('items.seconds') }}</label>
     <Field type="number" class="form-control" :id="secondsId" :name="secondsName" min="0" max="59" step="1"/>
     <ErrorMessage :errors="errorBag?.[`${secondsName}`]"/>
   </div>

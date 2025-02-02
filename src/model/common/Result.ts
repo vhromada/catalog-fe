@@ -1,5 +1,5 @@
 import { Timer } from '../../utils/Timer.ts';
-import { IApiExchange } from './Exchange';
+import { type IApiExchange } from './Exchange';
 
 export interface IResultError {
   code: string | number;

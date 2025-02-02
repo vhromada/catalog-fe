@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import NameSearchForm from '../../components/NameSearchForm.vue';
 import ProgramMenu from '../../components/programs/ProgramMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { ProgramStore } from '../../store/ProgramStore.ts';
 
+const {t} = useI18n();
 const store = new ProgramStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <ProgramMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('programs.title') }}</h2>
+    <h2>{{ t('programs.title') }}</h2>
     <NameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="programs" class="table table-hover" aria-describedby="List of programs">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('programs.header') }}</th>
+            <th data-nav="name">{{ t('programs.header') }}</th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
@@ -58,13 +60,13 @@ async function last() {
               <router-link :to="{name: 'programDetail', params: {uuid: program.uuid}}">{{ program.name }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(program.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(program.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editProgram', params: {uuid: program.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editProgram', params: {uuid: program.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(program.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(program.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -93,8 +95,8 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for programs">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('programs.statistics.count') }}</th>
-            <th data-nav="mediaCount">{{ $t('items.mediaCount') }}</th>
+            <th data-nav="count">{{ t('programs.statistics.count') }}</th>
+            <th data-nav="mediaCount">{{ t('items.mediaCount') }}</th>
           </tr>
         </thead>
         <tbody>

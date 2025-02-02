@@ -1,9 +1,9 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import genreConnector from '../connector/GenreConnector.ts';
-import { INameFilter, NameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { Genre, IGenre, IGenreStatistics } from '../model/Genre.ts';
+import { type INameFilter, NameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { Genre, type IGenre, type IGenreStatistics } from '../model/Genre.ts';
 import config from '../utils/Config.ts';
 
 export class GenreStore {
@@ -25,7 +25,7 @@ export class GenreStore {
     if (genresResponse.isOk()) {
       const statisticsResponse = await genreConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -119,8 +119,8 @@ export class GenreStore {
   private async searchByFilter(filter: INameFilter): Promise<IResult> {
     const response = await genreConnector.search(filter);
     if (response.isOk()) {
-      this.genres.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.genres.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

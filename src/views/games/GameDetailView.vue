@@ -5,7 +5,7 @@ import GameMenu from '../../components/games/GameMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { getWikiCzUrl, getWikiEnUrl } from '../../model/common/Link.ts';
 import { Result } from '../../model/common/Result.ts';
-import { IGame } from '../../model/Game.ts';
+import { type IGame } from '../../model/Game.ts';
 import { GameStore } from '../../store/GameStore.ts';
 
 const props = defineProps({
@@ -21,7 +21,7 @@ loadGame();
 async function loadGame() {
   await store.get(props.uuid).then((result: Result<IGame>) => {
     if (result.isOk()) {
-      game.value = result.data!!;
+      game.value = result.data!;
       loaded.value = true;
     }
   });
@@ -106,7 +106,7 @@ function formatAdditionalData(): string {
           </tr>
           <tr>
             <td class="title">{{ t('items.format') }}</td>
-            <td>{{ $t(`registers.${game.format}`) }}</td>
+            <td>{{ t(`registers.${game.format}`) }}</td>
           </tr>
           <tr v-if="hasAdditionalData()">
             <td class="title">{{ t('items.additionalData') }}</td>
@@ -128,12 +128,12 @@ function formatAdditionalData(): string {
           </tr>
           <tr v-if="game.wikiCz">
             <td colspan="2">
-              <a target="_blank" :href="getWikiCzUrl(game)">{{ $t('items.wikiCz') }}</a>
+              <a target="_blank" :href="getWikiCzUrl(game)">{{ t('items.wikiCz') }}</a>
             </td>
           </tr>
           <tr v-if="game.wikiEn">
             <td colspan="2">
-              <a target="_blank" :href="getWikiEnUrl(game)">{{ $t('items.wikiEn') }}</a>
+              <a target="_blank" :href="getWikiEnUrl(game)">{{ t('items.wikiEn') }}</a>
             </td>
           </tr>
         </tbody>

@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import ProgramForm from '../../components/programs/ProgramForm.vue';
 import ProgramMenu from '../../components/programs/ProgramMenu.vue';
 import ResultError from '../../components/ResultError.vue';
-import { IResult, Result } from '../../model/common/Result.ts';
-import { IProgram, Program } from '../../model/Program.ts';
+import { type IResult, Result } from '../../model/common/Result.ts';
+import { type IProgram, Program } from '../../model/Program.ts';
 import { ProgramStore } from '../../store/ProgramStore.ts';
 
 const props = defineProps({
   uuid: {type: String, required: true}
 });
 const router = useRouter();
+const {t} = useI18n();
 const store = new ProgramStore();
 const program = ref({} as Program);
 const loaded = ref(false);
@@ -21,7 +23,7 @@ loadProgram();
 async function loadProgram() {
   await store.get(props.uuid).then((result: Result<IProgram>) => {
     if (result.isOk()) {
-      program.value = new Program(result.data!!);
+      program.value = new Program(result.data!);
       loaded.value = true;
     }
   });
@@ -43,7 +45,7 @@ function onCancel() {
 <template>
   <ProgramMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('programs.form.edit') }}</h2>
+    <h2>{{ t('programs.form.edit') }}</h2>
     <ProgramForm :program="program" :uuid="props.uuid" @submit="onSubmit" @cancel="onCancel" v-if="loaded"/>
   </div>
   <ResultError/>

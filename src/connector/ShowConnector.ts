@@ -1,8 +1,8 @@
-import { AxiosRequestConfig } from 'axios';
-import { IMultipleNameFilter } from '../model/common/Filter.ts';
-import { IPage } from '../model/common/Paging.ts';
+import { type AxiosRequestConfig } from 'axios';
+import { type IMultipleNameFilter } from '../model/common/Filter.ts';
+import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { ChangeShowRequest, IShow, IShowStatistics } from '../model/Show';
+import { ChangeShowRequest, type IShow, type IShowStatistics } from '../model/Show';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class ShowConnector {

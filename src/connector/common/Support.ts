@@ -1,8 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from 'axios';
 import { v4 as uuid } from 'uuid';
-import { IApiExchange, IApiExchangeEvent } from '../../model/common/Exchange.ts';
-import { IPagingFilter } from '../../model/common/Paging.ts';
-import { IResultError, Result, ResultStatus } from '../../model/common/Result.ts';
+import { type IApiExchange, type IApiExchangeEvent } from '../../model/common/Exchange.ts';
+import { type IPagingFilter } from '../../model/common/Paging.ts';
+import { type IResultError, Result, ResultStatus } from '../../model/common/Result.ts';
 import logger from '../../utils/Logger.ts';
 import { Timer } from '../../utils/Timer.ts';
 
@@ -54,7 +54,6 @@ const initInfoEvent = (
   response: AxiosResponse,
   timer: Timer
 ): IApiExchangeEvent => {
-  response.request;
   return {
     apiStatusCode: response.status,
     apiMethod: getMessage(reqConfig.method),

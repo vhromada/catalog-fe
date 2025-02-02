@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { ModalEvent } from '../../model/common/View.ts';
 import { PictureStore } from '../../store/PictureStore.ts';
 import config from '../../utils/Config.ts';
@@ -7,6 +8,7 @@ import { emitter } from '../../utils/Event.ts';
 import useModal from '../../utils/Modal.ts';
 
 const emit = defineEmits(['choose']);
+const {t} = useI18n();
 const {content, focusElement, toggleBtn, open, close} = useModal();
 const store = new PictureStore();
 const picture = ref<string | undefined>();
@@ -38,7 +40,7 @@ onMounted(() => {
       <div ref="content" class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">
-            <span>{{ $t('links.choosePicture') }}</span>
+            <span>{{ t('links.choosePicture') }}</span>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click.prevent="close()"/>
         </div>
@@ -50,13 +52,13 @@ onMounted(() => {
         </div>
         <div class="modal-footer">
           <button id="chooseFocus" ref="focusElement" type="button" name="choosePicture" class="btn btn-primary" data-bs-dismiss="modal" @click.prevent="onClose" v-if="picture">
-            {{ $t('links.choose') }}
+            {{ t('links.choose') }}
           </button>
         </div>
       </div>
     </div>
   </div>
   <button id="pictureToggle" ref="toggleBtn" type="button" class="hidden" data-bs-toggle="modal" data-bs-target="#picturesModal">
-    {{ $t('links.show') }}
+    {{ t('links.show') }}
   </button>
 </template>

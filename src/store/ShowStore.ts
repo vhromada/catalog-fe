@@ -1,9 +1,9 @@
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import showConnector from '../connector/ShowConnector.ts';
-import { IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { ChangeShowRequest, IShow, IShowStatistics } from '../model/Show.ts';
+import { type IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { ChangeShowRequest, type IShow, type IShowStatistics } from '../model/Show.ts';
 
 export class ShowStore {
 
@@ -24,7 +24,7 @@ export class ShowStore {
     if (showsResponse.isOk()) {
       const statisticsResponse = await showConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -112,8 +112,8 @@ export class ShowStore {
   private async searchByFilter(filter: IMultipleNameFilter): Promise<IResult> {
     const response = await showConnector.search(filter);
     if (response.isOk()) {
-      this.shows.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.shows.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

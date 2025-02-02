@@ -1,7 +1,7 @@
 import { useI18n } from 'vue-i18n';
 import * as yup from 'yup';
-import { IMediaLink, IWikiLink } from './common/Link.ts';
-import { IGenre } from './Genre.ts';
+import { type IMediaLink, type IWikiLink } from './common/Link.ts';
+import { type IGenre } from './Genre.ts';
 
 export interface IShow extends IWikiLink, IMediaLink {
   uuid: string;

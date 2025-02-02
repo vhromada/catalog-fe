@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import PictureMenu from '../../components/pictures/PictureMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { PictureStore } from '../../store/PictureStore.ts';
 import config from '../../utils/Config.ts';
 
+const {t} = useI18n();
 const store = new PictureStore();
 
 store.load();
@@ -32,12 +34,12 @@ async function last() {
 <template>
   <PictureMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('pictures.title') }}</h2>
+    <h2>{{ t('pictures.title') }}</h2>
     <div class="table-responsive" v-if="store.exists()">
       <table id="pictures" class="table table-hover" aria-describedby="List of pictures">
         <thead>
           <tr>
-            <th data-nav="image">{{ $t('pictures.header') }}</th>
+            <th data-nav="image">{{ t('pictures.header') }}</th>
             <th data-nav="remove"></th>
           </tr>
         </thead>
@@ -47,7 +49,7 @@ async function last() {
               <img alt="Picture" class="picture" :src="`${config.catalogUrl}public/pictures/${picture}`"/>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(picture)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(picture)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -72,7 +74,7 @@ async function last() {
         </li>
       </ul>
     </nav>
-    <span id="noData" v-if="!store.exists">{{ $t('pictures.noData') }}</span>
+    <span id="noData" v-if="!store.exists">{{ t('pictures.noData') }}</span>
   </div>
   <ResultError/>
 </template>

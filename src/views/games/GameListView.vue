@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import GameMenu from '../../components/games/GameMenu.vue';
 import NameSearchForm from '../../components/NameSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import { GameStore } from '../../store/GameStore.ts';
 
+const {t} = useI18n();
 const store = new GameStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <GameMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('games.title') }}</h2>
+    <h2>{{ t('games.title') }}</h2>
     <NameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="games" class="table table-hover" aria-describedby="List of games">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('games.header') }}</th>
+            <th data-nav="name">{{ t('games.header') }}</th>
             <th data-nav="cheats"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
@@ -59,19 +61,19 @@ async function last() {
               <router-link :to="{name: 'gameDetail', params: {uuid: game.uuid}}">{{ game.name }}</router-link>
             </td>
             <td data-nav="cheats" v-if="game.cheat">
-              <router-link :to="{name: 'cheats', params: {game: game.uuid}}">{{ $t('cheats.title') }}</router-link>
+              <router-link :to="{name: 'cheats', params: {game: game.uuid}}">{{ t('cheats.title') }}</router-link>
             </td>
             <td data-nav="cheats" v-else>
-              <router-link :to="{name: 'addCheats', params: {game: game.uuid}}">{{ $t('cheats.form.add') }}</router-link>
+              <router-link :to="{name: 'addCheats', params: {game: game.uuid}}">{{ t('cheats.form.add') }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(game.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(game.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editGame', params: {uuid: game.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editGame', params: {uuid: game.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(game.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(game.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -100,8 +102,8 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for games">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('games.statistics.count') }}</th>
-            <th data-nav="mediaCount">{{ $t('items.mediaCount') }}</th>
+            <th data-nav="count">{{ t('games.statistics.count') }}</th>
+            <th data-nav="mediaCount">{{ t('items.mediaCount') }}</th>
           </tr>
         </thead>
         <tbody>

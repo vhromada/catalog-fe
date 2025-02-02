@@ -1,8 +1,8 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import seasonConnector from '../connector/SeasonConnector.ts';
-import { IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { ISeason, Season } from '../model/Season.ts';
+import { type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { type ISeason, Season } from '../model/Season.ts';
 
 export class SeasonStore {
 
@@ -19,8 +19,8 @@ export class SeasonStore {
   async load(show: string): Promise<IResult> {
     const response = await seasonConnector.search(show, this.filter);
     if (response.isOk()) {
-      this.seasons.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.seasons.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

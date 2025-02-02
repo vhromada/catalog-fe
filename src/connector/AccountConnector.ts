@@ -1,8 +1,8 @@
-import { AxiosRequestConfig } from 'axios';
+import { type AxiosRequestConfig } from 'axios';
 import { hashSync } from 'bcrypt-ts';
-import { ChangeRoles, Credentials, IAccount, IAccountStatistics } from '../model/Account';
-import { IAccountFilter } from '../model/common/Filter.ts';
-import { IPage } from '../model/common/Paging.ts';
+import { ChangeRoles, Credentials, type IAccount, type IAccountStatistics } from '../model/Account';
+import { type IAccountFilter } from '../model/common/Filter.ts';
+import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
 import config from '../utils/Config.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';

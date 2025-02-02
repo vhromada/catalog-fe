@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import JokeMenu from '../../components/jokes/JokeMenu.vue';
 import ResultError from '../../components/ResultError.vue';
-import { IJoke } from '../../model/Joke.ts';
+import { type IJoke } from '../../model/Joke.ts';
 import { JokeStore } from '../../store/JokeStore.ts';
 
+const {t} = useI18n();
 const store = new JokeStore();
 
 store.load();
@@ -38,12 +40,12 @@ function formatContent(joke: IJoke): string {
 <template>
   <JokeMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('jokes.title') }}</h2>
+    <h2>{{ t('jokes.title') }}</h2>
     <div class="table-responsive" v-if="store.exists()">
       <table id="jokes" class="table table-hover" aria-describedby="List of jokes">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('jokes.header') }}</th>
+            <th data-nav="name">{{ t('jokes.header') }}</th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
           </tr>
@@ -54,10 +56,10 @@ function formatContent(joke: IJoke): string {
               <router-link :to="{name: 'jokeDetail', params: {uuid: joke.uuid}}">{{ formatContent(joke) }}</router-link>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editJoke', params: {uuid: joke.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editJoke', params: {uuid: joke.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(joke.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(joke.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -86,7 +88,7 @@ function formatContent(joke: IJoke): string {
       <table id="statistics" class="table" aria-describedby="Statistics for jokes">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('jokes.statistics.count') }}</th>
+            <th data-nav="count">{{ t('jokes.statistics.count') }}</th>
           </tr>
         </thead>
         <tbody>

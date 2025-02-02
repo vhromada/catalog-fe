@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import BookMenu from '../BookMenu.vue';
 
 const props = defineProps({
   book: {type: String, required: true}
 });
+const {t} = useI18n();
 </script>
 
 <template>
@@ -17,10 +19,10 @@ const props = defineProps({
       <div id="bookItemNavbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="nav-item">
-            <router-link id="bookItemListNavigation" class="nav-link" :to="{name: 'bookItems', params: {book: props.book}}">{{ $t('bookItems.menu.list') }}</router-link>
+            <router-link id="bookItemListNavigation" class="nav-link" :to="{name: 'bookItems', params: {book: props.book}}">{{ t('bookItems.menu.list') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link id="addBookItemNavigation" class="nav-link" :to="{name: 'addBookItem', params: {book: props.book}}">{{ $t('bookItems.form.add') }}</router-link>
+            <router-link id="addBookItemNavigation" class="nav-link" :to="{name: 'addBookItem', params: {book: props.book}}">{{ t('bookItems.form.add') }}</router-link>
           </li>
         </ul>
       </div>

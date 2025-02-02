@@ -1,6 +1,6 @@
 import { useI18n } from 'vue-i18n';
 import * as yup from 'yup';
-import { IWikiLink } from './common/Link.ts';
+import { type IWikiLink } from './common/Link.ts';
 
 export interface IMusic extends IWikiLink {
   uuid: string;

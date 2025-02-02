@@ -1,5 +1,5 @@
 import accountConnector from '../connector/AccountConnector.ts';
-import { ChangeRoles, Credentials, IAccount } from '../model/Account.ts';
+import { ChangeRoles, Credentials, type IAccount } from '../model/Account.ts';
 import { Result } from '../model/common/Result.ts';
 
 export class UserStore {
@@ -8,15 +8,15 @@ export class UserStore {
     this.logout();
     const response = await accountConnector.checkCredentials(credentials);
     if (response.isOk()) {
-      sessionStorage.setItem('user', JSON.stringify(response.data!!));
+      sessionStorage.setItem('user', JSON.stringify(response.data!));
     }
     return response;
   }
 
   public async updateUser(credentials: Credentials): Promise<Result<IAccount>> {
-    const response = await accountConnector.updateCredentials(this.getUser()!!.uuid, credentials);
+    const response = await accountConnector.updateCredentials(this.getUser()!.uuid, credentials);
     if (response.isOk()) {
-      sessionStorage.setItem('user', JSON.stringify(response.data!!));
+      sessionStorage.setItem('user', JSON.stringify(response.data!));
     }
     return response;
   }
@@ -24,7 +24,7 @@ export class UserStore {
   public async updateRoles(uuid: string, roles: ChangeRoles): Promise<Result<IAccount>> {
     const response = await accountConnector.updateRoles(uuid, roles);
     if (response.isOk() && uuid == this.getUser()?.uuid) {
-      sessionStorage.setItem('user', JSON.stringify(response.data!!));
+      sessionStorage.setItem('user', JSON.stringify(response.data!));
     }
     return response;
   }

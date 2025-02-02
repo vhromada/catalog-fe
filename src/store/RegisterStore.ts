@@ -1,7 +1,7 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import registerConnector from '../connector/RegisterConnector.ts';
 import roleConnector from '../connector/RoleConnector.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 
 export class RegisterStore {
 
@@ -23,7 +23,7 @@ export class RegisterStore {
     if (this.programFormats.value.length == 0) {
       const response = await registerConnector.getProgramFormats();
       if (response.isOk()) {
-        this.programFormats.value = response.data!!;
+        this.programFormats.value = response.data!;
       }
       return response;
     } else {
@@ -35,7 +35,7 @@ export class RegisterStore {
     if (this.bookItemFormats.value.length == 0) {
       const response = await registerConnector.getBookItemFormats();
       if (response.isOk()) {
-        this.bookItemFormats.value = response.data!!;
+        this.bookItemFormats.value = response.data!;
       }
       return response;
     } else {
@@ -47,7 +47,7 @@ export class RegisterStore {
     if (this.languages.value.length == 0) {
       const response = await registerConnector.getLanguages();
       if (response.isOk()) {
-        this.languages.value = response.data!!;
+        this.languages.value = response.data!;
       }
       return response;
     } else {
@@ -59,7 +59,7 @@ export class RegisterStore {
     if (this.subtitles.value.length == 0) {
       const response = await registerConnector.getSubtitles();
       if (response.isOk()) {
-        this.subtitles.value = response.data!!;
+        this.subtitles.value = response.data!;
       }
       return response;
     } else {
@@ -71,7 +71,7 @@ export class RegisterStore {
     if (this.roles.value.length == 0) {
       const response = await roleConnector.getRoles();
       if (response.isOk()) {
-        this.roles.value = response.data!!;
+        this.roles.value = response.data!;
       }
       return response;
     } else {

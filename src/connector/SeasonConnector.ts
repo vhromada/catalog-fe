@@ -1,7 +1,7 @@
-import { AxiosRequestConfig } from 'axios';
-import { IPage, IPagingFilter } from '../model/common/Paging.ts';
+import { type AxiosRequestConfig } from 'axios';
+import { type IPage, type IPagingFilter } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { ISeason, Season } from '../model/Season';
+import { type ISeason, Season } from '../model/Season';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class SeasonConnector {

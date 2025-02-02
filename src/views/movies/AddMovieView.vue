@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import MovieForm from '../../components/movies/MovieForm.vue';
 import MovieMenu from '../../components/movies/MovieMenu.vue';
 import ResultError from '../../components/ResultError.vue';
-import { IResult } from '../../model/common/Result.ts';
+import { type IResult } from '../../model/common/Result.ts';
 import { ChangeMovieRequest, Movie } from '../../model/Movie.ts';
 import { MovieStore } from '../../store/MovieStore.ts';
 
 const router = useRouter();
+const {t} = useI18n();
 const store = new MovieStore();
 const movie = new Movie();
 
@@ -27,7 +29,7 @@ function onCancel() {
 <template>
   <MovieMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('movies.form.add') }}</h2>
+    <h2>{{ t('movies.form.add') }}</h2>
     <MovieForm :movie="movie" @submit="onSubmit" @cancel="onCancel"/>
   </div>
   <ResultError/>

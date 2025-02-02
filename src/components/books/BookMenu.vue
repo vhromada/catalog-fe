@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import CatalogMenu from '../CatalogMenu.vue';
+
+const {t} = useI18n();
 </script>
 
 <template>
@@ -13,10 +16,10 @@ import CatalogMenu from '../CatalogMenu.vue';
       <div id="bookNavbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="nav-item">
-            <router-link id="bookListNavigation" class="nav-link" :to="{name: 'books'}">{{ $t('books.menu.list') }}</router-link>
+            <router-link id="bookListNavigation" class="nav-link" :to="{name: 'books'}">{{ t('books.menu.list') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link id="addBookNavigation" class="nav-link" :to="{name: 'addBook'}">{{ $t('books.form.add') }}</router-link>
+            <router-link id="addBookNavigation" class="nav-link" :to="{name: 'addBook'}">{{ t('books.form.add') }}</router-link>
           </li>
         </ul>
       </div>

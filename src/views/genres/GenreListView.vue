@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import GenreMenu from '../../components/genres/GenreMenu.vue';
 import NameSearchForm from '../../components/NameSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import { GenreStore } from '../../store/GenreStore.ts';
 
+const {t} = useI18n();
 const store = new GenreStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <GenreMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('genres.title') }}</h2>
+    <h2>{{ t('genres.title') }}</h2>
     <NameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="genres" class="table table-hover" aria-describedby="List of genres">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('genres.header') }}</th>
+            <th data-nav="name">{{ t('genres.header') }}</th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
@@ -56,13 +58,13 @@ async function last() {
           <tr v-for="genre in store.genres.value" :key="genre.uuid">
             <td data-nav="name">{{ genre.name }}</td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(genre.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(genre.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editGenre', params: {uuid: genre.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editGenre', params: {uuid: genre.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(genre.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(genre.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -91,7 +93,7 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for genres">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('genres.statistics.count') }}</th>
+            <th data-nav="count">{{ t('genres.statistics.count') }}</th>
           </tr>
         </thead>
         <tbody>

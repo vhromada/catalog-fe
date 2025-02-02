@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import ResultError from '../../components/ResultError.vue';
 import SeasonMenu from '../../components/seasons/SeasonMenu.vue';
 import { SeasonStore } from '../../store/SeasonStore.ts';
@@ -6,6 +7,7 @@ import { SeasonStore } from '../../store/SeasonStore.ts';
 const props = defineProps({
   show: {type: String, required: true}
 });
+const {t} = useI18n();
 const store = new SeasonStore();
 
 store.load(props.show);
@@ -38,12 +40,12 @@ async function last() {
 <template>
   <SeasonMenu :show="props.show"/>
   <div class="container-fluid">
-    <h2>{{ $t('seasons.title') }}</h2>
+    <h2>{{ t('seasons.title') }}</h2>
     <div class="table-responsive" v-if="store.exists()">
       <table id="seasons" class="table table-hover" aria-describedby="List of seasons">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('seasons.header') }}</th>
+            <th data-nav="name">{{ t('seasons.header') }}</th>
             <th data-nav="episodes"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
@@ -56,16 +58,16 @@ async function last() {
               <router-link :to="{name: 'seasonDetail', params: {show: props.show, uuid: season.uuid}}">{{ season.number }}</router-link>
             </td>
             <td data-nav="episodes">
-              <router-link :to="{name: 'episodes', params: {show: props.show, season: season.uuid}}">{{ $t('episodes.title') }}</router-link>
+              <router-link :to="{name: 'episodes', params: {show: props.show, season: season.uuid}}">{{ t('episodes.title') }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(season.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(season.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editSeason', params: {show: props.show, uuid: season.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editSeason', params: {show: props.show, uuid: season.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(season.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(season.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -90,7 +92,7 @@ async function last() {
         </li>
       </ul>
     </nav>
-    <span id="noData" v-if="!store.exists">{{ $t('seasons.noData') }}</span>
+    <span id="noData" v-if="!store.exists">{{ t('seasons.noData') }}</span>
   </div>
   <ResultError/>
 </template>

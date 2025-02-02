@@ -1,8 +1,8 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import songConnector from '../connector/SongConnector.ts';
-import { IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { ChangeSongRequest, ISong } from '../model/Song.ts';
+import { type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { ChangeSongRequest, type ISong } from '../model/Song.ts';
 
 export class SongStore {
 
@@ -19,8 +19,8 @@ export class SongStore {
   async load(music: string): Promise<IResult> {
     const response = await songConnector.search(music, this.filter);
     if (response.isOk()) {
-      this.songs.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.songs.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

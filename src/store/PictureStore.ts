@@ -1,7 +1,7 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import pictureConnector from '../connector/PictureConnector.ts';
-import { IPagingFilter, IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult } from '../model/common/Result.ts';
+import { type IPagingFilter, type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult } from '../model/common/Result.ts';
 import config from '../utils/Config.ts';
 
 export class PictureStore {
@@ -83,8 +83,8 @@ export class PictureStore {
   private async searchByFilter(filter: IPagingFilter): Promise<IResult> {
     const response = await pictureConnector.search(filter);
     if (response.isOk()) {
-      this.pictures.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.pictures.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

@@ -1,8 +1,8 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import episodeConnector from '../connector/EpisodeConnector.ts';
-import { IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { ChangeEpisodeRequest, IEpisode } from '../model/Episode.ts';
+import { type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { ChangeEpisodeRequest, type IEpisode } from '../model/Episode.ts';
 
 export class EpisodeStore {
 
@@ -19,8 +19,8 @@ export class EpisodeStore {
   async load(show: string, season: string): Promise<IResult> {
     const response = await episodeConnector.search(show, season, this.filter);
     if (response.isOk()) {
-      this.episodes.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.episodes.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

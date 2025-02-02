@@ -1,9 +1,9 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import authorConnector from '../connector/AuthorConnector.ts';
-import { Author, IAuthor, IAuthorStatistics } from '../model/Author.ts';
-import { AuthorFilter, IAuthorFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { Author, type IAuthor, type IAuthorStatistics } from '../model/Author.ts';
+import { AuthorFilter, type IAuthorFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 import config from '../utils/Config.ts';
 
 export class AuthorStore {
@@ -25,7 +25,7 @@ export class AuthorStore {
     if (authorsResponse.isOk()) {
       const statisticsResponse = await authorConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -121,8 +121,8 @@ export class AuthorStore {
   private async searchByFilter(filter: IAuthorFilter): Promise<IResult> {
     const response = await authorConnector.search(filter);
     if (response.isOk()) {
-      this.authors.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.authors.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import BookMenu from '../../components/books/BookMenu.vue';
 import MultipleNameSearchForm from '../../components/MultipleNameSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import { BookStore } from '../../store/BookStore.ts';
 
+const {t} = useI18n();
 const store = new BookStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <BookMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('books.title') }}</h2>
+    <h2>{{ t('books.title') }}</h2>
     <MultipleNameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="books" class="table table-hover" aria-describedby="List of books">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('books.header') }}</th>
+            <th data-nav="name">{{ t('books.header') }}</th>
             <th data-nav="bookItems"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
@@ -59,16 +61,16 @@ async function last() {
               <router-link :to="{name: 'bookDetail', params: {uuid: book.uuid}}">{{ book.czechName }}</router-link>
             </td>
             <td data-nav="bookItems">
-              <router-link :to="{name: 'bookItems', params: {book: book.uuid}}">{{ $t('bookItems.title') }}</router-link>
+              <router-link :to="{name: 'bookItems', params: {book: book.uuid}}">{{ t('bookItems.title') }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(book.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(book.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editBook', params: {uuid: book.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editBook', params: {uuid: book.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(book.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(book.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -97,8 +99,8 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for books">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('books.statistics.count') }}</th>
-            <th data-nav="bookItemsCount">{{ $t('books.statistics.bookItems') }}</th>
+            <th data-nav="count">{{ t('books.statistics.count') }}</th>
+            <th data-nav="bookItemsCount">{{ t('books.statistics.bookItems') }}</th>
           </tr>
         </thead>
         <tbody>

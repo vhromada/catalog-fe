@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import MusicForm from '../../components/music/MusicForm.vue';
 import MusicMenu from '../../components/music/MusicMenu.vue';
 import ResultError from '../../components/ResultError.vue';
-import { IResult, Result } from '../../model/common/Result.ts';
-import { IMusic, Music } from '../../model/Music.ts';
+import { type IResult, Result } from '../../model/common/Result.ts';
+import { type IMusic, Music } from '../../model/Music.ts';
 import { MusicStore } from '../../store/MusicStore.ts';
 
 const props = defineProps({
   uuid: {type: String, required: true}
 });
 const router = useRouter();
+const {t} = useI18n();
 const store = new MusicStore();
 const music = ref({} as Music);
 const loaded = ref(false);
@@ -21,7 +23,7 @@ loadMusic();
 async function loadMusic() {
   await store.get(props.uuid).then((result: Result<IMusic>) => {
     if (result.isOk()) {
-      music.value = new Music(result.data!!);
+      music.value = new Music(result.data!);
       loaded.value = true;
     }
   });
@@ -43,7 +45,7 @@ function onCancel() {
 <template>
   <MusicMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('music.form.edit') }}</h2>
+    <h2>{{ t('music.form.edit') }}</h2>
     <MusicForm :music="music" :uuid="props.uuid" @submit="onSubmit" @cancel="onCancel" v-if="loaded"/>
   </div>
   <ResultError/>

@@ -1,9 +1,9 @@
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import movieConnector from '../connector/MovieConnector.ts';
-import { IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { ChangeMovieRequest, IMovie, IMovieStatistics } from '../model/Movie.ts';
+import { type IMultipleNameFilter, MultipleNameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { ChangeMovieRequest, type IMovie, type IMovieStatistics } from '../model/Movie.ts';
 
 export class MovieStore {
 
@@ -24,7 +24,7 @@ export class MovieStore {
     if (moviesResponse.isOk()) {
       const statisticsResponse = await movieConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -112,8 +112,8 @@ export class MovieStore {
   private async searchByFilter(filter: IMultipleNameFilter): Promise<IResult> {
     const response = await movieConnector.search(filter);
     if (response.isOk()) {
-      this.movies.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.movies.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

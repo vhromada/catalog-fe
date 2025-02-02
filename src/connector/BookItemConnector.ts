@@ -1,6 +1,6 @@
-import { AxiosRequestConfig } from 'axios';
-import { BookItem, IBookItem } from '../model/BookItem';
-import { IPage, IPagingFilter } from '../model/common/Paging.ts';
+import { type AxiosRequestConfig } from 'axios';
+import { BookItem, type IBookItem } from '../model/BookItem';
+import { type IPage, type IPagingFilter } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 

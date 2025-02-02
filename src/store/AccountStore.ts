@@ -1,9 +1,9 @@
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import accountConnector from '../connector/AccountConnector.ts';
-import { Credentials, IAccount, IAccountStatistics } from '../model/Account.ts';
-import { AccountFilter, IAccountFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { Credentials, type IAccount, type IAccountStatistics } from '../model/Account.ts';
+import { AccountFilter, type IAccountFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 
 export class AccountStore {
 
@@ -24,7 +24,7 @@ export class AccountStore {
     if (accountsResponse.isOk()) {
       const statisticsResponse = await accountConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -89,8 +89,8 @@ export class AccountStore {
   private async searchByFilter(filter: IAccountFilter): Promise<IResult> {
     const response = await accountConnector.search(filter);
     if (response.isOk()) {
-      this.accounts.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.accounts.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

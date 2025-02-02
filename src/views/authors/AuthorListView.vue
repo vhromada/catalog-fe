@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import AuthorMenu from '../../components/authors/AuthorMenu.vue';
 import AuthorSearchForm from '../../components/authors/AuthorSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import { formatAuthor } from '../../formatters';
 import { AuthorStore } from '../../store/AuthorStore.ts';
 
+const {t} = useI18n();
 const store = new AuthorStore();
 
 store.load();
@@ -41,13 +43,13 @@ async function last() {
 <template>
   <AuthorMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('authors.title') }}</h2>
+    <h2>{{ t('authors.title') }}</h2>
     <AuthorSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="authors" class="table table-hover" aria-describedby="List of authors">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('authors.header') }}</th>
+            <th data-nav="name">{{ t('authors.header') }}</th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
@@ -57,13 +59,13 @@ async function last() {
           <tr v-for="author in store.authors.value" :key="author.uuid">
             <td data-nav="name">{{ formatAuthor(author) }}</td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(author.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(author.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editAuthor', params: {uuid: author.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editAuthor', params: {uuid: author.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(author.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(author.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -92,7 +94,7 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for authors">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('authors.statistics.count') }}</th>
+            <th data-nav="count">{{ t('authors.statistics.count') }}</th>
           </tr>
         </thead>
         <tbody>

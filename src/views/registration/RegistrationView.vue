@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import AccountForm from '../../components/accounts/AccountForm.vue';
 import ResultError from '../../components/ResultError.vue';
-import { Account, Credentials, IAccount } from '../../model/Account.ts';
+import { Account, Credentials, type IAccount } from '../../model/Account.ts';
 import { Result } from '../../model/common/Result.ts';
 import { modalOpen } from '../../model/common/View.ts';
 import { AccountStore } from '../../store/AccountStore.ts';

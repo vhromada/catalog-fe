@@ -1,5 +1,5 @@
-import { IAuthor } from '../model/Author.ts';
-import { IGenre } from '../model/Genre.ts';
+import { type IAuthor } from '../model/Author.ts';
+import { type IGenre } from '../model/Genre.ts';
 
 export function formatImdbCode(imdbCode: number): string {
   return imdbCode.toString().padStart(7, '0');

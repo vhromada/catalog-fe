@@ -6,7 +6,7 @@ import AccountForm from '../../components/accounts/AccountForm.vue';
 import CatalogMenu from '../../components/CatalogMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { Account, Credentials } from '../../model/Account.ts';
-import { IResult } from '../../model/common/Result.ts';
+import { type IResult } from '../../model/common/Result.ts';
 import { modalOpen } from '../../model/common/View.ts';
 import { userStore } from '../../store/UserStore.ts';
 import { emitter } from '../../utils/Event.ts';

@@ -1,8 +1,8 @@
 import { useI18n } from 'vue-i18n';
 import * as yup from 'yup';
-import { IMediaLink, IWikiLink } from './common/Link.ts';
+import { type IMediaLink, type IWikiLink } from './common/Link.ts';
 import { getTimeSchema, Time } from './common/Time.ts';
-import { IGenre } from './Genre.ts';
+import { type IGenre } from './Genre.ts';
 
 export interface IMovie extends IWikiLink, IMediaLink {
   uuid: string;

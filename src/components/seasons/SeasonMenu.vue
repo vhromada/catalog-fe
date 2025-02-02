@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import ShowMenu from '../shows/ShowMenu.vue';
 
 const props = defineProps({
   show: {type: String, required: true}
 });
+const {t} = useI18n();
 </script>
 
 <template>
@@ -17,10 +19,10 @@ const props = defineProps({
       <div id="seasonNavbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="nav-item">
-            <router-link id="seasonListNavigation" class="nav-link" :to="{name: 'seasons', params: {show: props.show}}">{{ $t('seasons.menu.list') }}</router-link>
+            <router-link id="seasonListNavigation" class="nav-link" :to="{name: 'seasons', params: {show: props.show}}">{{ t('seasons.menu.list') }}</router-link>
           </li>
           <li class="nav-item">
-            <router-link id="addSeasonNavigation" class="nav-link" :to="{name: 'addSeason', params: {show: props.show}}">{{ $t('seasons.form.add') }}</router-link>
+            <router-link id="addSeasonNavigation" class="nav-link" :to="{name: 'addSeason', params: {show: props.show}}">{{ t('seasons.form.add') }}</router-link>
           </li>
         </ul>
       </div>

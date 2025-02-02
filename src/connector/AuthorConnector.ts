@@ -1,7 +1,7 @@
-import { AxiosRequestConfig } from 'axios';
-import { Author, IAuthor, IAuthorStatistics } from '../model/Author';
-import { IAuthorFilter } from '../model/common/Filter.ts';
-import { IPage } from '../model/common/Paging.ts';
+import { type AxiosRequestConfig } from 'axios';
+import { Author, type IAuthor, type IAuthorStatistics } from '../model/Author';
+import { type IAuthorFilter } from '../model/common/Filter.ts';
+import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 

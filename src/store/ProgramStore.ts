@@ -1,9 +1,9 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import programConnector from '../connector/ProgramConnector.ts';
-import { INameFilter, NameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { IProgram, IProgramStatistics, Program } from '../model/Program.ts';
+import { type INameFilter, NameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { type IProgram, type IProgramStatistics, Program } from '../model/Program.ts';
 
 export class ProgramStore {
 
@@ -24,7 +24,7 @@ export class ProgramStore {
     if (programsResponse.isOk()) {
       const statisticsResponse = await programConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -111,8 +111,8 @@ export class ProgramStore {
   private async searchByFilter(filter: INameFilter): Promise<IResult> {
     const response = await programConnector.search(filter);
     if (response.isOk()) {
-      this.programs.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.programs.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

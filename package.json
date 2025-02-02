@@ -5,7 +5,7 @@
         "name": "Vladimir Hromada",
         "email": "vhromada@gmail.com"
     },
-    "version": "24.1",
+    "version": "25.1",
     "private": true,
     "license": "MIT",
     "type": "module",
@@ -13,35 +13,30 @@
         "build": "run-p type-check \"build-only {@}\" --",
         "build-only": "vite build",
         "dev": "vite",
-        "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-        "preview": "vite preview",
+       "preview": "vite preview",
         "type-check": "vue-tsc --noEmit -p tsconfig.json --composite false"
     },
     "dependencies": {
-        "@popperjs/core": "^2.11.8",
-        "axios": "^1.7.2",
-        "bcrypt-ts": "^5.0.2",
+        "axios": "^1.7.9",
+        "bcrypt-ts": "^5.0.3",
         "bootstrap": "^5.3.3",
         "mitt": "^3.0.1",
-        "uuid": "^9.0.1",
-        "vee-validate": "^4.12.8",
-        "vue": "^3.4.27",
-        "vue-i18n": "^9.13.1",
+        "uuid": "^11.0.5",
+        "vee-validate": "^4.15.0",
+        "vue": "^3.5.13",
+        "vue-i18n": "^11.0.1",
         "vue-logger-plugin": "^2.2.3",
-        "vue-router": "^4.3.2",
-        "yup": "^1.4.0"
+        "vue-router": "^4.5.0",
+        "yup": "^1.6.1"
     },
     "devDependencies": {
-        "@rushstack/eslint-patch": "^1.10.3",
-        "@types/uuid": "^9.0.8",
-        "@typescript-eslint/eslint-plugin": "^7.10.0",
-        "@typescript-eslint/parser": "^7.10.0",
-        "@vitejs/plugin-vue": "^5.0.4",
-        "@vue/eslint-config-typescript": "^13.0.0",
-        "eslint-plugin-vue": "^9.26.0",
-        "npm-run-all2": "^6.2.0",
-        "typescript": "^5.4.5",
-        "vite": "^5.2.11",
-        "vue-tsc": "^2.0.19"
+        "@tsconfig/node22": "^22.0.0",
+        "@types/uuid": "^10.0.0",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "@vue/tsconfig": "^0.7.0",
+        "npm-run-all2": "^7.0.2",
+        "typescript": "^5.7.3",
+        "vite": "^6.0.11",
+        "vue-tsc": "^2.2.0"
     }
 }

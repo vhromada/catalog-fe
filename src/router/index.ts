@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, NavigationGuardNext, RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, type NavigationGuardNext, type RouteLocationNormalized, type RouteRecordRaw } from 'vue-router';
 import { userStore } from '../store/UserStore.ts';
 import CatalogView from '../views/CatalogView.vue';
 import LoginView from '../views/login/LoginView.vue';
@@ -57,7 +57,6 @@ const router = createRouter({
   routes
 });
 
-// @ts-ignore
 router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   if (to.meta?.requiresAuth && !userStore.isLoggedIn()) {
     next({path: '/login'});

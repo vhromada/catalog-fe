@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import MusicMenu from '../../components/music/MusicMenu.vue';
 import NameSearchForm from '../../components/NameSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import { MusicStore } from '../../store/MusicStore.ts';
 
+const {t} = useI18n();
 const store = new MusicStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <MusicMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('music.title') }}</h2>
+    <h2>{{ t('music.title') }}</h2>
     <NameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="musicList" class="table table-hover" aria-describedby="List of music">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('music.title') }}</th>
+            <th data-nav="name">{{ t('music.title') }}</th>
             <th data-nav="songs"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
@@ -59,16 +61,16 @@ async function last() {
               <router-link :to="{name: 'musicDetail', params: {uuid: music.uuid}}">{{ music.name }}</router-link>
             </td>
             <td data-nav="songs">
-              <router-link :to="{name: 'songs', params: {music: music.uuid}}">{{ $t('songs.title') }}</router-link>
+              <router-link :to="{name: 'songs', params: {music: music.uuid}}">{{ t('songs.title') }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(music.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(music.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editMusic', params: {uuid: music.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editMusic', params: {uuid: music.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(music.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(music.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -97,10 +99,10 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for music">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('music.statistics.count') }}</th>
-            <th data-nav="mediaCount">{{ $t('items.mediaCount') }}</th>
-            <th data-nav="songsCount">{{ $t('music.statistics.songs') }}</th>
-            <th data-nav="totalLength">{{ $t('common.totalLength') }}</th>
+            <th data-nav="count">{{ t('music.statistics.count') }}</th>
+            <th data-nav="mediaCount">{{ t('items.mediaCount') }}</th>
+            <th data-nav="songsCount">{{ t('music.statistics.songs') }}</th>
+            <th data-nav="totalLength">{{ t('common.totalLength') }}</th>
           </tr>
         </thead>
         <tbody>

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import GameMenu from '../games/GameMenu.vue';
 
 const props = defineProps({
   game: {type: String, required: true}
 });
+const {t} = useI18n();
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const props = defineProps({
       <div id="cheatNavbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="nav-item">
-            <router-link id="cheatsNavigation" class="nav-link" :to="{name: 'cheats', params: {game: props.game}}">{{ $t('cheats.menu.list') }}</router-link>
+            <router-link id="cheatsNavigation" class="nav-link" :to="{name: 'cheats', params: {game: props.game}}">{{ t('cheats.menu.list') }}</router-link>
           </li>
         </ul>
       </div>

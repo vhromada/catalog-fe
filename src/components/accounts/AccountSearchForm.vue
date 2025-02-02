@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const emit = defineEmits(['search']);
+const {t} = useI18n();
 const username = ref('');
 
 function onSubmit() {
@@ -14,11 +16,11 @@ function onSubmit() {
     <fieldset>
       <div class="row my-2">
         <div class="col-5">
-          <label class="form-label" for="username">{{ $t('accounts.items.username') }}</label>
+          <label class="form-label" for="username">{{ t('accounts.items.username') }}</label>
           <input type="text" id="username" name="username" class="form-control" v-model="username"/>
         </div>
         <div class="col-2 customButton">
-          <button type="submit" id="search" name="search" class="btn btn-primary">{{ $t('links.search') }}</button>
+          <button type="submit" id="search" name="search" class="btn btn-primary">{{ t('links.search') }}</button>
         </div>
       </div>
     </fieldset>

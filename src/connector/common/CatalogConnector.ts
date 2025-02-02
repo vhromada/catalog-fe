@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { type AxiosInstance, type AxiosRequestConfig } from 'axios';
 import { Result } from '../../model/common/Result.ts';
 import { modalOpen } from '../../model/common/View.ts';
 import { userStore } from '../../store/UserStore.ts';
@@ -49,7 +49,7 @@ export class ClientConnector {
     } catch (error: any) {
       result.timer.stop();
       handleError(result, error);
-      logError(this.apiClient, config, result.error!!, result.timer);
+      logError(this.apiClient, config, result.error!, result.timer);
       if (!silent) {
         emitter.emit('result-error', modalOpen(result));
       }

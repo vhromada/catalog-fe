@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import MultipleNameSearchForm from '../../components/MultipleNameSearchForm.vue';
 import ResultError from '../../components/ResultError.vue';
 import ShowMenu from '../../components/shows/ShowMenu.vue';
 import { ShowStore } from '../../store/ShowStore.ts';
 
+const {t} = useI18n();
 const store = new ShowStore();
 
 store.load();
@@ -40,13 +42,13 @@ async function last() {
 <template>
   <ShowMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('shows.title') }}</h2>
+    <h2>{{ t('shows.title') }}</h2>
     <MultipleNameSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="shows" class="table table-hover" aria-describedby="List of shows">
         <thead>
           <tr>
-            <th data-nav="name">{{ $t('shows.header') }}</th>
+            <th data-nav="name">{{ t('shows.header') }}</th>
             <th data-nav="seasons"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
@@ -59,16 +61,16 @@ async function last() {
               <router-link :to="{name: 'showDetail', params: {uuid: show.uuid}}">{{ show.czechName }}</router-link>
             </td>
             <td data-nav="seasons">
-              <router-link :to="{name: 'seasons', params: {show: show.uuid}}">{{ $t('seasons.title') }}</router-link>
+              <router-link :to="{name: 'seasons', params: {show: show.uuid}}">{{ t('seasons.title') }}</router-link>
             </td>
             <td data-nav="duplicate">
-              <a href="#" @click.prevent="duplicate(show.uuid)">{{ $t('links.duplicate') }}</a>
+              <a href="#" @click.prevent="duplicate(show.uuid)">{{ t('links.duplicate') }}</a>
             </td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editShow', params: {uuid: show.uuid}}">{{ $t('links.edit') }}</router-link>
+              <router-link :to="{name: 'editShow', params: {uuid: show.uuid}}">{{ t('links.edit') }}</router-link>
             </td>
             <td data-nav="remove">
-              <a href="#" @click.prevent="remove(show.uuid)">{{ $t('links.remove') }}</a>
+              <a href="#" @click.prevent="remove(show.uuid)">{{ t('links.remove') }}</a>
             </td>
           </tr>
         </tbody>
@@ -97,10 +99,10 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for shows">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('shows.statistics.count') }}</th>
-            <th data-nav="seasonsCount">{{ $t('shows.statistics.seasons') }}</th>
-            <th data-nav="episodesCount">{{ $t('shows.statistics.episodes') }}</th>
-            <th data-nav="totalLength">{{ $t('common.totalLength') }}</th>
+            <th data-nav="count">{{ t('shows.statistics.count') }}</th>
+            <th data-nav="seasonsCount">{{ t('shows.statistics.seasons') }}</th>
+            <th data-nav="episodesCount">{{ t('shows.statistics.episodes') }}</th>
+            <th data-nav="totalLength">{{ t('common.totalLength') }}</th>
           </tr>
         </thead>
         <tbody>

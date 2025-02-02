@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import ResultError from '../../components/ResultError.vue';
 import ShowForm from '../../components/shows/ShowForm.vue';
 import ShowMenu from '../../components/shows/ShowMenu.vue';
-import { IResult, Result } from '../../model/common/Result.ts';
-import { ChangeShowRequest, IShow, Show } from '../../model/Show.ts';
+import { type IResult, Result } from '../../model/common/Result.ts';
+import { ChangeShowRequest, type IShow, Show } from '../../model/Show.ts';
 import { ShowStore } from '../../store/ShowStore.ts';
 
 const props = defineProps({
   uuid: {type: String, required: true}
 });
 const router = useRouter();
+const {t} = useI18n();
 const store = new ShowStore();
 const show = ref({} as Show);
 const loaded = ref(false);
@@ -21,7 +23,7 @@ loadShow();
 async function loadShow() {
   await store.get(props.uuid).then((result: Result<IShow>) => {
     if (result.isOk()) {
-      show.value = new Show(result.data!!);
+      show.value = new Show(result.data!);
       loaded.value = true;
     }
   });
@@ -43,7 +45,7 @@ function onCancel() {
 <template>
   <ShowMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('shows.form.edit') }}</h2>
+    <h2>{{ t('shows.form.edit') }}</h2>
     <ShowForm :show="show" :uuid="props.uuid" @submit="onSubmit" @cancel="onCancel" v-if="loaded"/>
   </div>
   <ResultError/>

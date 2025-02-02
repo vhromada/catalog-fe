@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router';
 import ErrorMessage from '../../components/ErrorMessage.vue';
 import ResultError from '../../components/ResultError.vue';
 import { Credentials, getCredentialsSchema } from '../../model/Account.ts';
-import { IResult } from '../../model/common/Result.ts';
+import { type IResult } from '../../model/common/Result.ts';
 import { modalOpen } from '../../model/common/View.ts';
 import { userStore } from '../../store/UserStore.ts';
 import { emitter } from '../../utils/Event.ts';

@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n';
 import JokeMenu from '../../components/jokes/JokeMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { Result } from '../../model/common/Result.ts';
-import { IJoke } from '../../model/Joke.ts';
+import { type IJoke } from '../../model/Joke.ts';
 import { JokeStore } from '../../store/JokeStore.ts';
 
 const props = defineProps({
@@ -20,7 +20,7 @@ loadJoke();
 async function loadJoke() {
   await store.get(props.uuid).then((result: Result<IJoke>) => {
     if (result.isOk()) {
-      joke.value = result.data!!;
+      joke.value = result.data!;
       loaded.value = true;
     }
   });

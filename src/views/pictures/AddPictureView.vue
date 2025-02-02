@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import PictureForm from '../../components/pictures/PictureForm.vue';
 import PictureMenu from '../../components/pictures/PictureMenu.vue';
 import ResultError from '../../components/ResultError.vue';
-import { IResult } from '../../model/common/Result.ts';
+import { type IResult } from '../../model/common/Result.ts';
 import { PictureStore } from '../../store/PictureStore.ts';
 
 const router = useRouter();
+const {t} = useI18n();
 const store = new PictureStore();
 
 async function onSubmit(picture: File) {
@@ -25,7 +27,7 @@ function onCancel() {
 <template>
   <PictureMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('pictures.form.add') }}</h2>
+    <h2>{{ t('pictures.form.add') }}</h2>
     <PictureForm @submit="onSubmit" @cancel="onCancel"/>
   </div>
   <ResultError/>

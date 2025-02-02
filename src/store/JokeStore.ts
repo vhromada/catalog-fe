@@ -1,8 +1,8 @@
-import { ref, Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import jokeConnector from '../connector/JokeConnector.ts';
-import { IPagingFilter, IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { IJoke, IJokeStatistics, Joke } from '../model/Joke.ts';
+import { type IPagingFilter, type IPagingInfo, PagingFilter } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { type IJoke, type IJokeStatistics, Joke } from '../model/Joke.ts';
 
 export class JokeStore {
 
@@ -23,7 +23,7 @@ export class JokeStore {
     if (jokesResponse.isOk()) {
       const statisticsResponse = await jokeConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -95,8 +95,8 @@ export class JokeStore {
   private async searchByFilter(filter: IPagingFilter): Promise<IResult> {
     const response = await jokeConnector.search(filter);
     if (response.isOk()) {
-      this.jokes.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.jokes.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

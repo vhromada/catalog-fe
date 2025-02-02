@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import AccountSearchForm from '../../components/accounts/AccountSearchForm.vue';
 import CatalogMenu from '../../components/CatalogMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { AccountStore } from '../../store/AccountStore.ts';
 
+const {t} = useI18n();
 const store = new AccountStore();
 
 store.load();
@@ -32,23 +34,23 @@ async function last() {
 <template>
   <CatalogMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('accounts.title') }}</h2>
+    <h2>{{ t('accounts.title') }}</h2>
     <AccountSearchForm @search="search"/>
     <div class="table-responsive" v-if="store.exists()">
       <table id="accounts" class="table table-hover" aria-describedby="List of accounts">
         <thead>
           <tr>
-            <th data-nav="username">{{ $t('accounts.items.username') }}</th>
-            <th data-nav="roles">{{ $t('accounts.items.roles') }}</th>
+            <th data-nav="username">{{ t('accounts.items.username') }}</th>
+            <th data-nav="roles">{{ t('accounts.items.roles') }}</th>
             <th data-nav="edit"></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="account in store.accounts.value" :key="account.uuid">
             <td data-nav="username">{{ account.username }}</td>
-            <td data-nav="roles">{{ account.roles.map(role => $t(`registers.${role}`)).join(', ') }}</td>
+            <td data-nav="roles">{{ account.roles.map(role => t(`registers.${role}`)).join(', ') }}</td>
             <td data-nav="edit">
-              <router-link :to="{name: 'editRoles', params: {uuid: account.uuid}}">{{ $t('accounts.form.editRoles') }}</router-link>
+              <router-link :to="{name: 'editRoles', params: {uuid: account.uuid}}">{{ t('accounts.form.editRoles') }}</router-link>
             </td>
           </tr>
         </tbody>
@@ -77,7 +79,7 @@ async function last() {
       <table id="statistics" class="table" aria-describedby="Statistics for accounts">
         <thead>
           <tr>
-            <th data-nav="count">{{ $t('accounts.statistics.count') }}</th>
+            <th data-nav="count">{{ t('accounts.statistics.count') }}</th>
           </tr>
         </thead>
         <tbody>

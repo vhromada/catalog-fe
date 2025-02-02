@@ -1,9 +1,9 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import musicConnector from '../connector/MusicConnector.ts';
-import { INameFilter, NameFilter } from '../model/common/Filter.ts';
-import { IPagingInfo } from '../model/common/Paging.ts';
-import { IResult, Result } from '../model/common/Result.ts';
-import { IMusic, IMusicStatistics, Music } from '../model/Music.ts';
+import { type INameFilter, NameFilter } from '../model/common/Filter.ts';
+import { type IPagingInfo } from '../model/common/Paging.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
+import { type IMusic, type IMusicStatistics, Music } from '../model/Music.ts';
 
 export class MusicStore {
 
@@ -24,7 +24,7 @@ export class MusicStore {
     if (musicListResponse.isOk()) {
       const statisticsResponse = await musicConnector.getStatistics();
       if (statisticsResponse.isOk()) {
-        this.statistics.value = statisticsResponse.data!!;
+        this.statistics.value = statisticsResponse.data!;
       }
       return statisticsResponse;
     } else {
@@ -111,8 +111,8 @@ export class MusicStore {
   private async searchByFilter(filter: INameFilter): Promise<IResult> {
     const response = await musicConnector.search(filter);
     if (response.isOk()) {
-      this.musicList.value = response.data!!.data!!;
-      this.pagingInfo = response.data!!.pagingInfo!!;
+      this.musicList.value = response.data!.data!;
+      this.pagingInfo = response.data!.pagingInfo!;
     }
     return response;
   }

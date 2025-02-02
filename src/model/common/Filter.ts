@@ -1,5 +1,5 @@
 import SearchParams from '../../utils/SearchParams.ts';
-import { IPagingFilter, PagingFilter } from './Paging.ts';
+import { type IPagingFilter, PagingFilter } from './Paging.ts';
 
 export interface INameFilter extends IPagingFilter {
   name?: string;

@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import CheatForm from '../../components/cheats/CheatForm.vue';
 import GameMenu from '../../components/games/GameMenu.vue';
 import ResultError from '../../components/ResultError.vue';
 import { ChangeCheatRequest, Cheat } from '../../model/Cheat.ts';
-import { IResult } from '../../model/common/Result.ts';
+import { type IResult } from '../../model/common/Result.ts';
 import { CheatStore } from '../../store/CheatStore.ts';
 import { GameStore } from '../../store/GameStore.ts';
 
@@ -12,6 +13,7 @@ const props = defineProps({
   game: {type: String, required: true}
 });
 const router = useRouter();
+const {t} = useI18n();
 const gameStore = new GameStore();
 const cheatStore = new CheatStore();
 const cheat = new Cheat();
@@ -34,7 +36,7 @@ function onCancel() {
 <template>
   <GameMenu/>
   <div class="container-fluid">
-    <h2>{{ $t('cheats.form.add') }}</h2>
+    <h2>{{ t('cheats.form.add') }}</h2>
     <CheatForm :game="props.game" :cheat="cheat" @submit="onSubmit" @cancel="onCancel"/>
   </div>
   <ResultError/>

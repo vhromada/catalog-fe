@@ -1,7 +1,7 @@
-import { Ref, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import cheatConnector from '../connector/CheatConnector.ts';
-import { Cheat, ICheat } from '../model/Cheat.ts';
-import { IResult, Result } from '../model/common/Result.ts';
+import { Cheat, type ICheat } from '../model/Cheat.ts';
+import { type IResult, Result } from '../model/common/Result.ts';
 
 export class CheatStore {
 
@@ -14,7 +14,7 @@ export class CheatStore {
   async load(game: string): Promise<IResult> {
     const response = await cheatConnector.find(game);
     if (response.isOk()) {
-      this.cheat.value = response.data!!;
+      this.cheat.value = response.data!;
     }
     return response;
   }
