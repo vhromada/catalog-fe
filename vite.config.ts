@@ -4,12 +4,21 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    rollupOptions: {
+    rolldownOptions: {
       output: {
-        manualChunks(id) {
-          if (id.indexOf('node_modules') > 0) {
-            return 'vendor';
-          }
+        codeSplitting: {
+          groups: [
+            {
+              name: 'framework-vendor',
+              test: /node_modules[\\/]vue/,
+              priority: 20,
+            },
+            {
+              name: 'vendor',
+              test: /node_modules/,
+              priority: 10
+            },
+          ],
         }
       }
     }
