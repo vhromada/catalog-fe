@@ -85,7 +85,7 @@ export function getCheatSchema() {
   });
 }
 
-function getCheatDataSchema(t: any) {
+function getCheatDataSchema(t: ReturnType<typeof useI18n>['t']) {
   return yup.object({
     action: yup.string()
       .required(t('errors.required', {field: t('cheats.items.action')}))

@@ -17,7 +17,7 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getBookSchema(),
   initialValues: props.book
 });
-const onSubmit = handleSubmit((values: any) => {
+const onSubmit = handleSubmit((values: Book) => {
   const request = new ChangeBookRequest(values);
   emit('submit', request);
 });

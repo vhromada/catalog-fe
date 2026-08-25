@@ -1,7 +1,7 @@
 import { type AxiosRequestConfig } from 'axios';
 import { type IPage, type IPagingFilter } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { type IJoke, type IJokeStatistics, Joke } from '../model/Joke';
+import { type IJoke, type IJokeStatistics, Joke } from '../model/Joke.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class JokeConnector {

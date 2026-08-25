@@ -20,7 +20,7 @@ function handleEvent(event: ModalEvent<IResult>) {
 }
 
 onMounted(() => {
-  emitter.on('result-error', (event: any) => handleEvent(event));
+  emitter.on('result-error', (event) => handleEvent(event));
 });
 </script>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { getSeasonSchema, Season } from '../../model/Season.ts';
+import { getSeasonSchema, type ISeason, Season } from '../../model/Season.ts';
 import registerStore from '../../store/RegisterStore.ts';
 import ErrorMessage from '../ErrorMessage.vue';
 
@@ -17,8 +17,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getSeasonSchema(),
   initialValues: props.season
 });
-const onSubmit = handleSubmit((values: any) => {
-  const season = new Season(values);
+const onSubmit = handleSubmit((values: Season) => {
+  const season = new Season(values as unknown as ISeason);
   season.normalize();
   emit('submit', season);
 });

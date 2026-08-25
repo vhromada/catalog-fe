@@ -1,7 +1,7 @@
 import { type AxiosRequestConfig } from 'axios';
 import { type IPage, type IPagingFilter } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { ChangeEpisodeRequest, type IEpisode } from '../model/Episode';
+import { ChangeEpisodeRequest, type IEpisode } from '../model/Episode.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class EpisodeConnector {

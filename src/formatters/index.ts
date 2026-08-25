@@ -5,8 +5,8 @@ export function formatImdbCode(imdbCode: number): string {
   return imdbCode.toString().padStart(7, '0');
 }
 
-export function formatGenres(genres: any[]): string {
-  return genres.map((genre: IGenre) => genre.name).join(', ');
+export function formatGenres(genres: IGenre[]): string {
+  return genres.map((genre) => genre.name).join(', ');
 }
 
 export function formatAuthor(author: IAuthor): string {

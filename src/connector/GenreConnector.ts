@@ -2,7 +2,7 @@ import { type AxiosRequestConfig } from 'axios';
 import { type INameFilter } from '../model/common/Filter.ts';
 import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { Genre, type IGenre, type IGenreStatistics } from '../model/Genre';
+import { Genre, type IGenre, type IGenreStatistics } from '../model/Genre.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class GenreConnector {

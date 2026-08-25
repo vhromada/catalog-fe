@@ -21,7 +21,7 @@ async function onSubmit(credentials: Credentials) {
     if (result.isOk()) {
       router.push({name: 'catalog'});
     } else {
-      const errors = result.error?.response?.data?.errors;
+      const errors = (result.error?.response?.data as { errors?: { code: string }[] } | undefined)?.errors;
       if (Array.isArray(errors) && errors.findIndex((err) => err.code == 'ACCOUNT_USERNAME_ALREADY_EXIST') >= 0) {
         errorForm.value = t('accounts.errors.exists');
       } else {

@@ -14,26 +14,26 @@ export class ClientConnector {
     this.apiClient = apiClient;
   }
 
-  public async get<T = any>(url: string, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  public async get<T = unknown>(url: string, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     const configuration = config || {};
     configuration.url = url;
     configuration.method = 'GET';
     return this.call(configuration, silent);
   }
 
-  public async post<T = any>(url: string, data?: any, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  public async post<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     return this.send('POST', url, data, config, silent);
   }
 
-  public async put<T = any>(url: string, data?: any, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  public async put<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     return this.send('PUT', url, data, config, silent);
   }
 
-  public async delete<T = any>(url: string, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  public async delete<T = unknown>(url: string, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     return this.send('DELETE', url, undefined, config, silent);
   }
 
-  private async call<T = any>(config: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  private async call<T = unknown>(config: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     const reqId = initReqId();
     const result = new Result<T>(reqId);
     try {
@@ -46,7 +46,7 @@ export class ClientConnector {
       logResponse(this.apiClient, config, response, result.timer);
       result.data = response.data;
       return Promise.resolve(result);
-    } catch (error: any) {
+    } catch (error: unknown) {
       result.timer.stop();
       handleError(result, error);
       logError(this.apiClient, config, result.error!, result.timer);
@@ -57,7 +57,7 @@ export class ClientConnector {
     }
   }
 
-  private async send<T = any>(method: string, url: string, data?: any, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
+  private async send<T = unknown>(method: string, url: string, data?: unknown, config?: AxiosRequestConfig, silent?: boolean): Promise<Result<T>> {
     const configuration = config || {};
     configuration.url = url;
     configuration.data = data;

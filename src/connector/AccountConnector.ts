@@ -1,6 +1,6 @@
 import { type AxiosRequestConfig } from 'axios';
 import { hashSync } from 'bcrypt-ts';
-import { ChangeRoles, Credentials, type IAccount, type IAccountStatistics } from '../model/Account';
+import { ChangeRoles, Credentials, type IAccount, type IAccountStatistics } from '../model/Account.ts';
 import { type IAccountFilter } from '../model/common/Filter.ts';
 import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';

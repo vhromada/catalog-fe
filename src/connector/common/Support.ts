@@ -111,41 +111,42 @@ export const logError = (
   logger.error('Exchange', initErrorEvent(apiClient, config, error, timer));
 };
 
-export function handleError<T = any>(result: Result<T>, error: any) {
+export function handleError<T = unknown>(result: Result<T>, error: unknown) {
   result.status = ResultStatus.FAILURE;
   if (axios.isAxiosError(error)) {
     result.status = ResultStatus.SERVER_ERROR;
-    result.error = {
+    const resultError: IResultError = {
       code: getMessage(error.response?.status || error.code),
       name: error.name,
       message: getMessage(error.message || error.response?.data),
       detail: error.stack
     };
     if (error.request) {
-      result.error.request = {
+      resultError.request = {
         headers: error.request.headers,
         data: error.request.data
       };
     }
     if (error.response) {
-      result.error.response = {
+      resultError.response = {
         headers: error.response.headers,
         data: getMessage(error.response.data)
       };
     }
+    result.error = resultError;
     if (error.response?.status && error.response?.status < 500) {
       result.status = ResultStatus.CLIENT_ERROR;
     }
   } else {
     result.error = {
       code: 'INTERNAL_ERROR',
-      name: error.name || 'Internal error',
-      message: error.message,
+      name: error instanceof Error ? error.name : 'Internal error',
+      message: error instanceof Error ? error.message : String(error),
       detail: JSON.stringify(error)
     };
   }
 }
 
-function getMessage(message: any): string {
-  return message ? message : 'UNKNOWN';
+function getMessage<T>(message: T): NonNullable<T> | string {
+  return message ? (message as NonNullable<T>) : 'UNKNOWN';
 }

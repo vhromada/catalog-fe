@@ -5,20 +5,25 @@ import { useI18n } from 'vue-i18n';
 const emit = defineEmits(['submit', 'cancel']);
 const {t} = useI18n();
 const picture = ref({} as File);
+const isTooLarge = ref(false);
 const error = ref('');
 
-function onFileChanged(event: any) {
-  const file = event.target.files[0] as File;
+function onFileChanged(event: Event) {
+  const file = (event.target as HTMLInputElement).files![0];
   if (file.size > 5242880) {
-    picture.value = {} as File
+    isTooLarge.value = true;
     error.value = t('pictures.errors.maxSize');
   } else {
+    isTooLarge.value = false;
     picture.value = file;
-    error.value = ''
+    error.value = '';
   }
 }
 
 function onSubmit() {
+  if (isTooLarge.value) {
+    return;
+  }
   if (!(picture.value instanceof File)) {
     error.value = t('pictures.errors.required');
   } else {

@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 
-export default function useModal(): any {
+export default function useModal() {
 
   const content = ref<HTMLDivElement | null>(null);
   const focusElement = ref<HTMLDivElement | null>(null);

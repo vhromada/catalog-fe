@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { BookItem, getBookItemSchema } from '../../../model/BookItem.ts';
+import { BookItem, getBookItemSchema, type IBookItem } from '../../../model/BookItem.ts';
 import registerStore from '../../../store/RegisterStore.ts';
 import ErrorMessage from '../../ErrorMessage.vue';
 
@@ -16,8 +16,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getBookItemSchema(),
   initialValues: props.bookItem
 });
-const onSubmit = handleSubmit((values: any) => {
-  const bookItem = new BookItem(values);
+const onSubmit = handleSubmit((values: BookItem) => {
+  const bookItem = new BookItem(values as unknown as IBookItem);
   bookItem.normalize();
   emit('submit', bookItem);
 });

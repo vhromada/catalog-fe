@@ -1,5 +1,5 @@
 import { type AxiosRequestConfig } from 'axios';
-import { Author, type IAuthor, type IAuthorStatistics } from '../model/Author';
+import { Author, type IAuthor, type IAuthorStatistics } from '../model/Author.ts';
 import { type IAuthorFilter } from '../model/common/Filter.ts';
 import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';

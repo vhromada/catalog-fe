@@ -30,7 +30,7 @@ function onClose() {
 }
 
 onMounted(() => {
-  emitter.on('picture', (event: any) => handleEvent(event));
+  emitter.on('picture', (event) => handleEvent(event));
 });
 </script>
 

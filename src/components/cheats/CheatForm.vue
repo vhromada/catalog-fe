@@ -15,7 +15,7 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getCheatSchema(),
   initialValues: props.cheat
 });
-const onSubmit = handleSubmit((values: any) => {
+const onSubmit = handleSubmit((values: Cheat) => {
   const request = new ChangeCheatRequest(values);
   emit('submit', request);
 });

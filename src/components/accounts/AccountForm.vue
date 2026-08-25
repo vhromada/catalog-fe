@@ -15,7 +15,7 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getAccountSchema(),
   initialValues: props.account
 });
-const onSubmit = handleSubmit((values: any) => {
+const onSubmit = handleSubmit((values: Account) => {
   const credentials = new Credentials(values);
   emit('submit', credentials);
 });

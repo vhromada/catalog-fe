@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { getProgramSchema, Program } from '../../model/Program.ts';
+import { getProgramSchema, type IProgram, Program } from '../../model/Program.ts';
 import registerStore from '../../store/RegisterStore.ts';
 import ErrorMessage from '../ErrorMessage.vue';
 
@@ -15,8 +15,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getProgramSchema(),
   initialValues: props.program
 });
-const onSubmit = handleSubmit((values: any) => {
-  const program = new Program(values);
+const onSubmit = handleSubmit((values: Program) => {
+  const program = new Program(values as unknown as IProgram);
   program.normalize();
   emit('submit', program);
 });

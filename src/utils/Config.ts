@@ -1,5 +1,5 @@
 export class Config {
-  public readonly data: Map<string, any>;
+  public readonly data: Map<string, string>;
   public readonly catalogUrl: string;
   public readonly catalogUsername: string;
   public readonly catalogPassword: string;
@@ -9,7 +9,7 @@ export class Config {
   public readonly itemsPerPage: number;
   public readonly allDataCount: number;
 
-  constructor(data: Map<string, any>) {
+  constructor(data: Map<string, string>) {
     this.data = data;
     this.catalogUrl = param('VITE_APP_CATALOG_URL', data);
     this.catalogUsername = param('VITE_APP_CATALOG_USERNAME', data);
@@ -23,15 +23,15 @@ export class Config {
 
 }
 
-function param(key: string, data: Map<string, any>): any {
+function param(key: string, data: Map<string, string>): string {
   const env = import.meta.env[key];
   if (isValueDefied(env)) {
     return env;
   }
-  return data.get(key);
+  return data.get(key) as string;
 }
 
-function toBoolean(source: any = false): boolean {
+function toBoolean(source: string | boolean = false): boolean {
   if (source === 'true' || source === '1') {
     return true;
   } else if (source === 'false' || source === '0') {
@@ -40,7 +40,7 @@ function toBoolean(source: any = false): boolean {
   return !!source;
 }
 
-function getConfig(): Map<string, any> {
+function getConfig(): Map<string, string> {
   const file = loadConfig();
   const data = new Map();
   Object.keys(file).forEach((key) => {
@@ -61,7 +61,7 @@ function isValueDefied(value: string): boolean {
   return value !== undefined && value !== null && value !== '';
 }
 
-function loadConfig(): any {
+function loadConfig(): Record<string, string> {
   const url = '/config.json';
   const request = new XMLHttpRequest();
   request.open('GET', url, false); // synchronous call

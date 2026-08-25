@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { getMusicSchema, Music } from '../../model/Music.ts';
+import { getMusicSchema, type IMusic, Music } from '../../model/Music.ts';
 import ErrorMessage from '../ErrorMessage.vue';
 
 const props = defineProps({
@@ -14,8 +14,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getMusicSchema(),
   initialValues: props.music
 });
-const onSubmit = handleSubmit((values: any) => {
-  const music = new Music(values);
+const onSubmit = handleSubmit((values: Music) => {
+  const music = new Music(values as unknown as IMusic);
   music.normalize();
   emit('submit', music);
 });

@@ -2,7 +2,7 @@ import { type AxiosRequestConfig } from 'axios';
 import { type IMultipleNameFilter } from '../model/common/Filter.ts';
 import { type IPage } from '../model/common/Paging.ts';
 import { Result } from '../model/common/Result.ts';
-import { ChangeShowRequest, type IShow, type IShowStatistics } from '../model/Show';
+import { ChangeShowRequest, type IShow, type IShowStatistics } from '../model/Show.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 
 export class ShowConnector {

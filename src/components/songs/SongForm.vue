@@ -16,7 +16,7 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getSongSchema(),
   initialValues: props.song
 });
-const onSubmit = handleSubmit((values: any) => {
+const onSubmit = handleSubmit((values: Song) => {
   const request = new ChangeSongRequest(values);
   emit('submit', request);
 });

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { Game, getGameSchema } from '../../model/Game.ts';
+import { Game, getGameSchema, type IGame } from '../../model/Game.ts';
 import registerStore from '../../store/RegisterStore.ts';
 import ErrorMessage from '../ErrorMessage.vue';
 
@@ -15,8 +15,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getGameSchema(),
   initialValues: props.game
 });
-const onSubmit = handleSubmit((values: any) => {
-  const game = new Game(values);
+const onSubmit = handleSubmit((values: Game) => {
+  const game = new Game(values as unknown as IGame);
   game.normalize();
   emit('submit', game);
 });

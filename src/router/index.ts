@@ -61,7 +61,7 @@ router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormali
   if (to.meta?.requiresAuth && !userStore.isLoggedIn()) {
     next({path: '/login'});
   } else if (to.meta?.requiresAdmin && !userStore.isAdmin()) {
-    next();
+    next({path: '/'});
   } else {
     next();
   }

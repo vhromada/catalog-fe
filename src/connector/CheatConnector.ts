@@ -1,4 +1,4 @@
-import { ChangeCheatRequest, type ICheat } from '../model/Cheat';
+import { ChangeCheatRequest, type ICheat } from '../model/Cheat.ts';
 import { Result } from '../model/common/Result.ts';
 import { catalogConnector } from './common/CatalogConnector.ts';
 

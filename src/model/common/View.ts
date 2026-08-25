@@ -19,7 +19,7 @@ export class ModalEvent<T> {
     return this.action === ModalAction.OPEN;
   }
 
-  ifOpen(action: any): void {
+  ifOpen(action: () => void): void {
     if (this.isOpen()) {
       action();
     }
@@ -27,7 +27,7 @@ export class ModalEvent<T> {
 
 }
 
-export function isModalOpen(event: ModalEvent<any>): boolean {
+export function isModalOpen(event: ModalEvent<unknown>): boolean {
   return event?.action === ModalAction.OPEN;
 }
 

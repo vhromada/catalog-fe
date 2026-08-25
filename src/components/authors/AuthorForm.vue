@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Field, useForm } from 'vee-validate';
 import { useI18n } from 'vue-i18n';
-import { Author, getAuthorSchema } from '../../model/Author.ts';
+import { Author, getAuthorSchema, type IAuthor } from '../../model/Author.ts';
 import ErrorMessage from '../ErrorMessage.vue';
 
 const props = defineProps({
@@ -14,8 +14,8 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getAuthorSchema(),
   initialValues: props.author
 });
-const onSubmit = handleSubmit((values: any) => {
-  const author = new Author(values);
+const onSubmit = handleSubmit((values: Author) => {
+  const author = new Author(values as unknown as IAuthor);
   author.normalize();
   emit('submit', author);
 });

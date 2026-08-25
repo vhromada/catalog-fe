@@ -2,9 +2,9 @@ export default class SearchParams {
 
   private params = new Map<string, string>();
 
-  add(key: string, value?: any): SearchParams {
+  add(key: string, value?: string | number): SearchParams {
     if (value !== undefined) {
-      this.params.set(key, value);
+      this.params.set(key, String(value));
     }
     return this;
   }

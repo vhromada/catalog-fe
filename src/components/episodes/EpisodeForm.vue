@@ -17,7 +17,7 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getEpisodeSchema(),
   initialValues: props.episode
 });
-const onSubmit = handleSubmit((values: any) => {
+const onSubmit = handleSubmit((values: Episode) => {
   const request = new ChangeEpisodeRequest(values);
   emit('submit', request);
 });

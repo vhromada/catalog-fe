@@ -1,6 +1,6 @@
 export interface IApiExchange {
-  headers?: any;
-  data?: any;
+  headers?: unknown;
+  data?: unknown;
 }
 
 export interface IApiExchangeEvent {

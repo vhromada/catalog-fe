@@ -18,12 +18,12 @@ const {handleSubmit, errorBag} = useForm({
   validationSchema: getCredentialsSchema(),
   initialValues: new Credentials()
 });
-const onSubmit = handleSubmit(async (values: any) => {
+const onSubmit = handleSubmit(async (values: Credentials) => {
   await userStore.login(values).then((result: IResult) => {
     if (result.isOk()) {
       router.push({name: 'catalog'});
     } else {
-      const errors = result.error?.response?.data?.errors;
+      const errors = (result.error?.response?.data as { errors?: { code: string }[] } | undefined)?.errors;
       if (Array.isArray(errors) && errors.findIndex((err) => err.code == 'INVALID_CREDENTIALS') >= 0) {
         error.value = t('login.errors.invalid');
       } else {

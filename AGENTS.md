@@ -61,7 +61,7 @@ No test framework is currently configured. Validate changes with:
 ## 📝 Coding Standards
 - **Components:** `<script setup lang="ts">` + Composition API only.
 - **i18n:** Never hardcode user-facing strings — add keys to `src/i18n/locales` and use `t('...')`.
-- **Validation:** Build form schemas with `yup` via a `get<Name>Schema()` function (see a Model pattern above); render field errors with `<ErrorMessage :errors="errorBag.<field>"/>`.
+- **Validation:** Build form schemas with `yup` via a `get<Name>Schema()` function (see a Model pattern above); render field errors with `<ErrorMessage :errors="errorBag.<field>"/>`. **Exception:** `PictureForm.vue` doesn't use vee-validate/yup at all — plain `ref`s for the file and a hand-rolled `error` message, since the validation (file-size check) doesn't map to a schema field. Keep this in mind before "fixing" it into the yup pattern.
 - **Naming:** `.vue` components in PascalCase; one connector/store/model class per resource, named `<Name>Connector`/`<Name>Store`/`<Name>`.
 - **Imports:** Use explicit `.ts`/`.vue` extensions in relative imports (matches existing code).
 - **Style:** Follow existing formatting; don't fight the ESLint/Prettier config — run `npm run lint` before finishing.
