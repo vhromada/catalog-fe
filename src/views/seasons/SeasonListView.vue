@@ -92,7 +92,7 @@ async function last() {
         </li>
       </ul>
     </nav>
-    <span id="noData" v-if="!store.exists">{{ t('seasons.noData') }}</span>
+    <span id="noData" v-if="!store.exists()">{{ t('seasons.noData') }}</span>
   </div>
   <ResultError/>
 </template>

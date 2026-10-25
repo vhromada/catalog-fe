@@ -67,6 +67,6 @@ export function getEpisodeSchema() {
       .max(100, t('errors.max.string', {field: t('items.name').toLowerCase(), max: '${max}'})),
     length: getTimeSchema(),
     note: yup.string()
-      .max(100, t('errors.max.string', {field: t('items.note'), max: '${max}'}))
+      .max(100, t('errors.max.string', {field: t('items.note').toLowerCase(), max: '${max}'}))
   });
 }

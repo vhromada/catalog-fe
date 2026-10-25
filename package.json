@@ -5,7 +5,7 @@
         "name": "Vladimir Hromada",
         "email": "vhromada@gmail.com"
     },
-    "version": "26.5-SNAPSHOT",
+    "version": "26.5",
     "private": true,
     "license": "MIT",
     "type": "module",
@@ -24,8 +24,8 @@
         "mitt": "^3.0.1",
         "uuid": "^14.0.3",
         "vee-validate": "^4.15.1",
-        "vue": "^3.5.43",
-        "vue-i18n": "^11.4.14",
+        "vue": "^3.5.44",
+        "vue-i18n": "^11.4.16",
         "vue-logger-plugin": "^2.2.3",
         "vue-router": "^5.4.0",
         "yup": "^1.7.1"
@@ -37,11 +37,11 @@
         "@vue/eslint-config-prettier": "^10.2.0",
         "@vue/eslint-config-typescript": "^14.9.0",
         "@vue/tsconfig": "^0.9.1",
-        "eslint": "^10.12.0",
+        "eslint": "^10.13.0",
         "eslint-plugin-vue": "^10.11.1",
-        "npm-run-all2": "^9.0.3",
+        "npm-run-all2": "^9.0.4",
         "typescript": "^6.0.3",
-        "vite": "^8.3.4",
+        "vite": "^8.3.5",
         "vue-tsc": "^3.3.13"
     }
 }

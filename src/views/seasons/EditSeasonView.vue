@@ -23,8 +23,10 @@ loadSeason();
 
 async function loadSeason() {
   await store.get(props.show, props.uuid).then((result: Result<ISeason>) => {
-    season.value = new Season(result.data!);
-    loaded.value = true;
+    if (result.isOk()) {
+      season.value = new Season(result.data!);
+      loaded.value = true;
+    }
   });
 }
 

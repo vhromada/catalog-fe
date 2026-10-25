@@ -120,6 +120,7 @@ export function getShowSchema() {
     csfd: yup.string()
       .max(100, t('errors.max.string', {field: t('items.csfd'), max: '${max}'})),
     imdbCode: yup.number()
+      .transform((value, original) => (original === '' ? undefined : value))
       .min(1, t('errors.min.number', {field: t('items.imdb'), min: '${min}'}))
       .max(999999999, t('errors.max.number', {field: t('items.imdb'), max: '${max}'}))
       .typeError(t('errors.required', {field: t('items.imdb')})),
