@@ -50,6 +50,7 @@ async function last() {
           <tr>
             <th data-nav="name">{{ t('games.header') }}</th>
             <th data-nav="cheats"></th>
+            <th data-nav="walkthroughs"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
@@ -65,6 +66,18 @@ async function last() {
             </td>
             <td data-nav="cheats" v-else>
               <router-link :to="{name: 'addCheats', params: {game: game.uuid}}">{{ t('cheats.form.add') }}</router-link>
+            </td>
+            <td data-nav="walkthroughs" v-if="game.walkthrough">
+              <router-link :to="{name: 'walkthroughs', params: {game: game.uuid}}">{{ t('walkthroughs.title') }}</router-link>
+            </td>
+            <td data-nav="walkthroughs" v-else>
+              <router-link :to="{name: 'addWalkthroughs', params: {game: game.uuid}}">{{ t('walkthroughs.form.add') }}</router-link>
+            </td>
+            <td data-nav="handbooks" v-if="game.handbook">
+              <router-link :to="{name: 'handbooks', params: {game: game.uuid}}">{{ t('handbooks.title') }}</router-link>
+            </td>
+            <td data-nav="handbooks" v-else>
+              <router-link :to="{name: 'addHandbooks', params: {game: game.uuid}}">{{ t('handbooks.form.add') }}</router-link>
             </td>
             <td data-nav="duplicate">
               <a href="#" @click.prevent="duplicate(game.uuid)">{{ t('links.duplicate') }}</a>

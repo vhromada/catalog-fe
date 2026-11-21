@@ -32,6 +32,19 @@ Typical release flow: `/update-dependencies` → `/update-version <version>` →
 
 There is currently no automated test suite (no unit/e2e test files or runner configured) — verify changes via `npm run build`/`npm run type-check` and manual checks in the dev server.
 
+### Project skills (`.claude/skills/`)
+Eight skills codify the per-layer conventions for adding or changing a resource; `new-resource` is the entry point for scaffolding an entire new resource end-to-end — it sequences the other
+seven. Each layer skill also stands alone for a later change to just that layer.
+- **`new-resource`** — orchestrator: gathers the resource spec (name, fields, filter shape, simple/child/single-object-child shape, optional parts), sequences the other seven skills, final
+  `type-check`/`lint` verification.
+- **`model-layer`** — `src/model/<Name>.ts`: `I<Name>` DTO, `I<Name>Statistics`, the `<Name>` class, `get<Name>Schema()`.
+- **`connector-layer`** — `src/connector/<Name>Connector.ts`: the thin wrapper over `catalogConnector`.
+- **`store-layer`** — `src/store/<Name>Store.ts`: the plain class wrapping the connector with paging/filter/reload logic.
+- **`i18n-locales`** — the resource's block in `src/i18n/locales/en.json`.
+- **`components-layer`** — `src/components/<plural>/<Name>Form.vue` and `<Name>Menu.vue` (plus an optional local search form).
+- **`views-layer`** — `src/views/<plural>/<Name>ListView.vue`, `Add<Name>View.vue`, `Edit<Name>View.vue` (plus an optional DetailView).
+- **`router-navigation`** — `src/router/<plural>Routes.ts`, its registration in `src/router/index.ts`, and the `CatalogMenu.vue` nav entry.
+
 ## 🧩 Architectural Patterns
 
 ### Data flow

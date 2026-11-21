@@ -126,6 +126,26 @@ function formatAdditionalData(): string {
               <router-link :to="{name: 'addCheats', params: {game: game.uuid}}">{{ t('cheats.form.add') }}</router-link>
             </td>
           </tr>
+          <tr v-if="game.walkthrough">
+            <td colspan="2">
+              <router-link :to="{name: 'walkthroughs', params: {game: game.uuid}}">{{ t('walkthroughs.title') }}</router-link>
+            </td>
+          </tr>
+          <tr v-else>
+            <td colspan="2">
+              <router-link :to="{name: 'addWalkthroughs', params: {game: game.uuid}}">{{ t('walkthroughs.form.add') }}</router-link>
+            </td>
+          </tr>
+          <tr v-if="game.handbook">
+            <td colspan="2">
+              <router-link :to="{name: 'handbooks', params: {game: game.uuid}}">{{ t('handbooks.title') }}</router-link>
+            </td>
+          </tr>
+          <tr v-else>
+            <td colspan="2">
+              <router-link :to="{name: 'addHandbooks', params: {game: game.uuid}}">{{ t('handbooks.form.add') }}</router-link>
+            </td>
+          </tr>
           <tr v-if="game.wikiCz">
             <td colspan="2">
               <a target="_blank" :href="getWikiCzUrl(game)">{{ t('items.wikiCz') }}</a>

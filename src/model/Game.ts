@@ -17,6 +17,8 @@ export interface IGame extends IWikiLink {
   otherData?: string;
   note?: string;
   cheat: boolean;
+  walkthrough: boolean;
+  handbook: boolean;
 }
 
 export interface IGameStatistics {

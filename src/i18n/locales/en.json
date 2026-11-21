@@ -163,6 +163,21 @@
         },
         "title": "Genres"
     },
+    "handbooks": {
+        "form": {
+            "add": "Add @.lower:handbooks.header",
+            "edit": "Edit @.lower:handbooks.header",
+            "remove": "Remove @.lower:handbooks.header"
+        },
+        "header": "Handbook",
+        "items": {
+            "content": "Content"
+        },
+        "menu": {
+            "list": "All @.lower:handbooks.title"
+        },
+        "title": "Handbooks"
+    },
     "items": {
         "additionalData": "Additional data",
         "crack": "Crack",
@@ -319,6 +334,22 @@
     "registration": {
         "title": "Registration"
     },
+    "richText": {
+        "background": "Background color",
+        "bold": "Bold",
+        "color": "Text color",
+        "heading": "Heading",
+        "italic": "Italic",
+        "preview": "Preview",
+        "subheading": "Subheading",
+        "table": "Table",
+        "tableAddColumn": "Add column",
+        "tableHeader": "Add header",
+        "tableRemoveColumn": "Remove column",
+        "tableRemoveRow": "Remove row",
+        "tableRow": "Add row",
+        "underline": "Underline"
+    },
     "roles": {
         "title": "Edit roles"
     },
@@ -372,5 +403,20 @@
             "list": "All @.lower:songs.title"
         },
         "title": "Songs"
+    },
+    "walkthroughs": {
+        "form": {
+            "add": "Add @.lower:walkthroughs.header",
+            "edit": "Edit @.lower:walkthroughs.header",
+            "remove": "Remove @.lower:walkthroughs.header"
+        },
+        "header": "Walkthrough",
+        "items": {
+            "content": "Content"
+        },
+        "menu": {
+            "list": "All @.lower:walkthroughs.title"
+        },
+        "title": "Walkthroughs"
     }
 }
