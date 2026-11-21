@@ -1,6 +1,8 @@
 ---
 description: Update npm dependencies (Vue, vite, TypeScript, ESLint, libraries) to their latest stable versions
-allowed-tools: Read, Edit, Grep, Glob, WebSearch, WebFetch, mcp__context7__resolve-library-id, mcp__context7__query-docs, Bash(npm outdated:*), Bash(npm install:*), Bash(npm run:*), Bash(git diff:*), Bash(git status:*)
+allowed-tools: >-
+  Read, Edit, Grep, Glob, WebSearch, WebFetch, mcp__context7__resolve-library-id, mcp__context7__query-docs, Bash(npm outdated:*), Bash(npm install:*), Bash(npm run:*), Bash(git diff:*),
+  Bash(git status:*)
 ---
 
 Update the dependencies of Catalog FE to their latest stable versions. The command has no arguments — look up all versions yourself.

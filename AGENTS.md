@@ -84,7 +84,8 @@ No test framework is currently configured. Validate changes with:
 - **Naming:** `.vue` components in PascalCase; one connector/store/model class per resource, named `<Name>Connector`/`<Name>Store`/`<Name>`.
 - **Imports:** Use explicit `.ts`/`.vue` extensions in relative imports (matches existing code).
 - **Style:** Follow existing formatting; don't fight the ESLint/Prettier config — run `npm run lint` before finishing.
-- **Markdown:** lines are at most 200 characters; wrap longer paragraphs and bullets at that width and indent continuation lines of a list item.
+- **Markdown:** lines are at most 200 characters, except table rows. When wrapping, fill each line as close to 200 characters as possible instead of using several shorter lines, and indent
+  continuation lines of a list item. Format tables for readability: spaces only (no tabs), every cell padded so the `|` separators align, and separator rows filled with `-` to the full column width.
 
 ## 📂 Project Structure
 - `src/connector`: REST clients, one per resource; `connector/common` holds the shared axios wrapper (`CatalogConnector.ts`) and request/error helpers (`Support.ts`).

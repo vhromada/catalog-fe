@@ -36,16 +36,16 @@ npm run dev
 Configuration comes from `VITE_APP_*` environment variables (for local development see `.env.development.local`), which can be overridden at runtime
 by `public/config.json` (a `null` value means "not overridden").
 
-| Variable                        | Description                              |
-|---------------------------------|------------------------------------------|
-| `VITE_APP_CATALOG_URL`          | Base URL of the catalog REST API         |
-| `VITE_APP_CATALOG_USERNAME`     | Username for API authentication          |
-| `VITE_APP_CATALOG_PASSWORD`     | Password for API authentication          |
-| `VITE_APP_HASH_SALT`            | Salt used for password hashing           |
-| `VITE_APP_LOG_ENABLED`          | Enable logging                           |
-| `VITE_APP_LOG_CONSOLE_ENABLED`  | Enable logging to the console            |
-| `VITE_APP_ITEMS_PER_PAGE`       | Number of items per page                 |
-| `VITE_APP_ALL_DATA_COUNT`       | Page size used when loading all data     |
+| Variable                       | Description                          |
+|--------------------------------|--------------------------------------|
+| `VITE_APP_CATALOG_URL`         | Base URL of the catalog REST API     |
+| `VITE_APP_CATALOG_USERNAME`    | Username for API authentication      |
+| `VITE_APP_CATALOG_PASSWORD`    | Password for API authentication      |
+| `VITE_APP_HASH_SALT`           | Salt used for password hashing       |
+| `VITE_APP_LOG_ENABLED`         | Enable logging                       |
+| `VITE_APP_LOG_CONSOLE_ENABLED` | Enable logging to the console        |
+| `VITE_APP_ITEMS_PER_PAGE`      | Number of items per page             |
+| `VITE_APP_ALL_DATA_COUNT`      | Page size used when loading all data |
 
 ## Project structure
 
