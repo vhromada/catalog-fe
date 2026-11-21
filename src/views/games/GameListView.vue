@@ -51,6 +51,7 @@ async function last() {
             <th data-nav="name">{{ t('games.header') }}</th>
             <th data-nav="cheats"></th>
             <th data-nav="walkthroughs"></th>
+            <th data-nav="handbooks"></th>
             <th data-nav="duplicate"></th>
             <th data-nav="edit"></th>
             <th data-nav="remove"></th>
